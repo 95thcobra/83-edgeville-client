@@ -34,8 +34,8 @@ public class Class21 {
 					final int var6 = var1.method564();
 
 					for (int var5 = 0; var5 < var6; ++var5) {
-						final int var2 = var1.method568();
-						final int var3 = var1.method568();
+						final int var2 = var1.readInt();
+						final int var3 = var1.readInt();
 						aLinkedHashMap199.put(Integer.valueOf(var2), Integer.valueOf(var3));
 					}
 				}

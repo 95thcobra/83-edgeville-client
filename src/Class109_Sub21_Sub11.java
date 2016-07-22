@@ -31,15 +31,15 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 
 	void method747(final DataBuffer var1, final int var2) {
 		if (var2 == 1)
-			anInt1490 = var1.method566();
+			anInt1490 = var1.readShort();
 		else if (var2 == 2)
-			anInt1483 = var1.method566();
+			anInt1483 = var1.readShort();
 		else if (var2 == 4)
-			anInt1488 = var1.method566();
+			anInt1488 = var1.readShort();
 		else if (var2 == 5)
-			anInt1489 = var1.method566();
+			anInt1489 = var1.readShort();
 		else if (var2 == 6)
-			anInt1482 = var1.method566();
+			anInt1482 = var1.readShort();
 		else if (var2 == 7)
 			anInt1491 = var1.method564();
 		else if (var2 == 8)
@@ -53,8 +53,8 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 				aShortArray1478 = new short[var4];
 
 				for (var3 = 0; var3 < var4; ++var3) {
-					aShortArray1496[var3] = (short) var1.method566();
-					aShortArray1478[var3] = (short) var1.method566();
+					aShortArray1496[var3] = (short) var1.readShort();
+					aShortArray1478[var3] = (short) var1.readShort();
 				}
 			} else if (var2 == 41) {
 				var4 = var1.method564();
@@ -62,8 +62,8 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 				aShortArray1487 = new short[var4];
 
 				for (var3 = 0; var3 < var4; ++var3) {
-					aShortArray1486[var3] = (short) var1.method566();
-					aShortArray1487[var3] = (short) var1.method566();
+					aShortArray1486[var3] = (short) var1.readShort();
+					aShortArray1487[var3] = (short) var1.readShort();
 				}
 			}
 		}
@@ -125,13 +125,13 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 		int var6;
 		int var35;
 		int var39;
-		if (client.anInt2013 == 127) {
-			var35 = client.aClass109_Sub14_Sub1_2211.method564();
+		if (client.incomingMessage == 127) {
+			var35 = client.gameBuffer.method564();
 			var39 = ((var35 >> 4) & 7) + Class8.anInt89;
 			var4 = Class109_Sub21_Sub13.anInt1544 + (var35 & 7);
-			var5 = client.aClass109_Sub14_Sub1_2211.method566();
-			var6 = client.aClass109_Sub14_Sub1_2211.method566();
-			var0 = client.aClass109_Sub14_Sub1_2211.method566();
+			var5 = client.gameBuffer.readShort();
+			var6 = client.gameBuffer.readShort();
+			var0 = client.gameBuffer.readShort();
 			if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104)) {
 				final Class126 var40 = client.aClass126ArrayArrayArray2121[Class77.anInt616][var39][var4];
 				if (null != var40) {
@@ -150,12 +150,12 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 			int var8;
 			int var16;
 			int var41;
-			if (client.anInt2013 == 25) {
-				var35 = client.aClass109_Sub14_Sub1_2211.method608();
+			if (client.incomingMessage == 25) {
+				var35 = client.gameBuffer.readByteN();
 				var39 = ((var35 >> 4) & 7) + Class8.anInt89;
 				var4 = Class109_Sub21_Sub13.anInt1544 + (var35 & 7);
-				var5 = client.aClass109_Sub14_Sub1_2211.method566();
-				var6 = client.aClass109_Sub14_Sub1_2211.method585();
+				var5 = client.gameBuffer.readShort();
+				var6 = client.gameBuffer.readByteS();
 				var0 = var6 >> 2;
 				var8 = var6 & 3;
 				var16 = client.anIntArray2030[var0];
@@ -222,13 +222,13 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 					}
 				}
 
-			} else if (client.anInt2013 == 239) {
-				var35 = client.aClass109_Sub14_Sub1_2211.method564();
+			} else if (client.incomingMessage == 239) {
+				var35 = client.gameBuffer.method564();
 				var39 = Class8.anInt89 + ((var35 >> 4) & 7);
 				var4 = Class109_Sub21_Sub13.anInt1544 + (var35 & 7);
-				var5 = client.aClass109_Sub14_Sub1_2211.method566();
-				var6 = client.aClass109_Sub14_Sub1_2211.method564();
-				var0 = client.aClass109_Sub14_Sub1_2211.method566();
+				var5 = client.gameBuffer.readShort();
+				var6 = client.gameBuffer.method564();
+				var0 = client.gameBuffer.readShort();
 				if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104)) {
 					var39 = 64 + (128 * var39);
 					var4 = 64 + (128 * var4);
@@ -241,22 +241,22 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 				int var15;
 				int var20;
 				int var22;
-				if (client.anInt2013 == 95) {
-					byte var3 = client.aClass109_Sub14_Sub1_2211.method587();
-					byte var9 = client.aClass109_Sub14_Sub1_2211.method604();
-					var4 = client.aClass109_Sub14_Sub1_2211.method591();
-					var5 = client.aClass109_Sub14_Sub1_2211.method608();
+				if (client.incomingMessage == 95) {
+					byte var3 = client.gameBuffer.method587();
+					byte var9 = client.gameBuffer.method604();
+					var4 = client.gameBuffer.readLEShort();
+					var5 = client.gameBuffer.readByteN();
 					var6 = var5 >> 2;
 					var0 = var5 & 3;
 					var8 = client.anIntArray2030[var6];
-					var16 = client.aClass109_Sub14_Sub1_2211.method591();
-					byte var23 = client.aClass109_Sub14_Sub1_2211.method587();
-					byte var17 = client.aClass109_Sub14_Sub1_2211.method616();
-					var22 = client.aClass109_Sub14_Sub1_2211.method591();
-					var20 = client.aClass109_Sub14_Sub1_2211.method608();
+					var16 = client.gameBuffer.readLEShort();
+					byte var23 = client.gameBuffer.method587();
+					byte var17 = client.gameBuffer.method616();
+					var22 = client.gameBuffer.readLEShort();
+					var20 = client.gameBuffer.readByteN();
 					var15 = Class8.anInt89 + ((var20 >> 4) & 7);
 					final int var21 = Class109_Sub21_Sub13.anInt1544 + (var20 & 7);
-					final int var26 = client.aClass109_Sub14_Sub1_2211.method566();
+					final int var26 = client.gameBuffer.readShort();
 					Class109_Sub21_Sub15_Sub3_Sub2 var14;
 					if (client.anInt2092 == var22)
 						var14 = Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590;
@@ -316,20 +316,20 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 				}
 
 				int var42;
-				if (client.anInt2013 == 49) {
-					var35 = client.aClass109_Sub14_Sub1_2211.method564();
+				if (client.incomingMessage == 49) {
+					var35 = client.gameBuffer.method564();
 					var39 = Class8.anInt89 + ((var35 >> 4) & 7);
 					var4 = Class109_Sub21_Sub13.anInt1544 + (var35 & 7);
-					var5 = var39 + client.aClass109_Sub14_Sub1_2211.method612();
-					var6 = var4 + client.aClass109_Sub14_Sub1_2211.method612();
-					var0 = client.aClass109_Sub14_Sub1_2211.method575();
-					var8 = client.aClass109_Sub14_Sub1_2211.method566();
-					var16 = client.aClass109_Sub14_Sub1_2211.method564() * 4;
-					var42 = client.aClass109_Sub14_Sub1_2211.method564() * 4;
-					var41 = client.aClass109_Sub14_Sub1_2211.method566();
-					var22 = client.aClass109_Sub14_Sub1_2211.method566();
-					var20 = client.aClass109_Sub14_Sub1_2211.method564();
-					var15 = client.aClass109_Sub14_Sub1_2211.method564();
+					var5 = var39 + client.gameBuffer.method612();
+					var6 = var4 + client.gameBuffer.method612();
+					var0 = client.gameBuffer.method575();
+					var8 = client.gameBuffer.readShort();
+					var16 = client.gameBuffer.method564() * 4;
+					var42 = client.gameBuffer.method564() * 4;
+					var41 = client.gameBuffer.readShort();
+					var22 = client.gameBuffer.readShort();
+					var20 = client.gameBuffer.method564();
+					var15 = client.gameBuffer.method564();
 					if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104) && (var5 >= 0) && (var6 >= 0)
 							&& (var5 < 104) && (var6 < 104) && (var8 != '\uffff')) {
 						var39 = (128 * var39) + 64;
@@ -344,23 +344,23 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 						client.aClass126_2197.method450(var24);
 					}
 
-				} else if (client.anInt2013 == 241) {
-					var35 = client.aClass109_Sub14_Sub1_2211.method564();
+				} else if (client.incomingMessage == 241) {
+					var35 = client.gameBuffer.method564();
 					var39 = Class8.anInt89 + ((var35 >> 4) & 7);
 					var4 = (var35 & 7) + Class109_Sub21_Sub13.anInt1544;
-					var5 = client.aClass109_Sub14_Sub1_2211.method564();
+					var5 = client.gameBuffer.method564();
 					var6 = var5 >> 2;
 					var0 = var5 & 3;
 					var8 = client.anIntArray2030[var6];
 					if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104))
 						Class109_Sub21_Sub19.method888(Class77.anInt616, var39, var4, var8, -1, var6, var0, 0, -1);
 
-				} else if (client.anInt2013 == 215) {
-					var35 = client.aClass109_Sub14_Sub1_2211.method566();
-					var39 = client.aClass109_Sub14_Sub1_2211.method585();
+				} else if (client.incomingMessage == 215) {
+					var35 = client.gameBuffer.readShort();
+					var39 = client.gameBuffer.readByteS();
 					var4 = ((var39 >> 4) & 7) + Class8.anInt89;
 					var5 = (var39 & 7) + Class109_Sub21_Sub13.anInt1544;
-					var6 = client.aClass109_Sub14_Sub1_2211.method584();
+					var6 = client.gameBuffer.method584();
 					var0 = var6 >> 2;
 					var8 = var6 & 3;
 					var16 = client.anIntArray2030[var0];
@@ -369,12 +369,12 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 
 				} else {
 					Class109_Sub21_Sub15_Sub1 var2;
-					if (client.anInt2013 == 205) {
-						var35 = client.aClass109_Sub14_Sub1_2211.method564();
+					if (client.incomingMessage == 205) {
+						var35 = client.gameBuffer.method564();
 						var39 = ((var35 >> 4) & 7) + Class8.anInt89;
 						var4 = Class109_Sub21_Sub13.anInt1544 + (var35 & 7);
-						var5 = client.aClass109_Sub14_Sub1_2211.method566();
-						var6 = client.aClass109_Sub14_Sub1_2211.method592();
+						var5 = client.gameBuffer.readShort();
+						var6 = client.gameBuffer.readLEShortA();
 						if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104)) {
 							var2 = new Class109_Sub21_Sub15_Sub1();
 							var2.anInt1638 = var6;
@@ -387,15 +387,15 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 						}
 
 					} else {
-						if (client.anInt2013 == 116) {
-							var35 = client.aClass109_Sub14_Sub1_2211.method564();
+						if (client.incomingMessage == 116) {
+							var35 = client.gameBuffer.method564();
 							var39 = Class8.anInt89 + ((var35 >> 4) & 7);
 							var4 = (var35 & 7) + Class109_Sub21_Sub13.anInt1544;
-							var5 = client.aClass109_Sub14_Sub1_2211.method566();
-							var6 = client.aClass109_Sub14_Sub1_2211.method564();
+							var5 = client.gameBuffer.readShort();
+							var6 = client.gameBuffer.method564();
 							var0 = (var6 >> 4) & 15;
 							var8 = var6 & 7;
-							var16 = client.aClass109_Sub14_Sub1_2211.method564();
+							var16 = client.gameBuffer.method564();
 							if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104)) {
 								var42 = 1 + var0;
 								if ((Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1655[0] >= (var39
@@ -417,11 +417,11 @@ public class Class109_Sub21_Sub11 extends Class109_Sub21 {
 							}
 						}
 
-						if (client.anInt2013 == 83) {
-							var35 = client.aClass109_Sub14_Sub1_2211.method608();
+						if (client.incomingMessage == 83) {
+							var35 = client.gameBuffer.readByteN();
 							var39 = Class8.anInt89 + ((var35 >> 4) & 7);
 							var4 = (var35 & 7) + Class109_Sub21_Sub13.anInt1544;
-							var5 = client.aClass109_Sub14_Sub1_2211.method591();
+							var5 = client.gameBuffer.readLEShort();
 							if ((var39 >= 0) && (var4 >= 0) && (var39 < 104) && (var4 < 104)) {
 								final Class126 var1 = client.aClass126ArrayArrayArray2121[Class77.anInt616][var39][var4];
 								if (var1 != null) {

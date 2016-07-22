@@ -264,8 +264,8 @@ public class Class18 {
 
 		anInt166 = var1.method574();
 		anInt168 = var1.method574();
-		anInt170 = var1.method566();
-		anInt171 = var1.method566();
+		anInt170 = var1.readShort();
+		anInt171 = var1.readShort();
 		aClass14_163 = new Class14();
 		aClass15_174 = new Class15();
 		aClass14_163.method72(var1, aClass15_174);

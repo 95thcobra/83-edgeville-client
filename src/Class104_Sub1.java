@@ -36,8 +36,8 @@ public class Class104_Sub1 extends Class104 {
 		final int var9 = anInt1130;
 		if (Class102.aClass109_Sub14_763 != null) {
 			Class102.aClass109_Sub14_763.position = 5 + (var9 * 8);
-			final int var7 = Class102.aClass109_Sub14_763.method568();
-			final int var8 = Class102.aClass109_Sub14_763.method568();
+			final int var7 = Class102.aClass109_Sub14_763.readInt();
+			final int var8 = Class102.aClass109_Sub14_763.readInt();
 			method641(var7, var8);
 		} else {
 			Class109_Sub8.method526((Class104_Sub1) null, 255, 255, 0, (byte) 0, true);
@@ -97,7 +97,7 @@ public class Class104_Sub1 extends Class104 {
 				else {
 					int var6 = 0;
 					if (var7 >= 6)
-						var6 = var8.method568();
+						var6 = var8.readInt();
 
 					if ((anInt1135 != var5) || (var6 != anInt1128))
 						Class109_Sub8.method526(this, 255, anInt1130, anInt1135, (byte) 0, true);

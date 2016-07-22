@@ -157,29 +157,29 @@ public class Class109_Sub4_Sub4 extends Class109_Sub4 {
 	static void method885(final byte[] var0) {
 		final DataBuffer var1 = new DataBuffer(var0);
 		var1.position = var0.length - 2;
-		Class9.anInt95 = var1.method566();
+		Class9.anInt95 = var1.readShort();
 		Class9.anIntArray92 = new int[Class9.anInt95];
 		Class9.anIntArray93 = new int[Class9.anInt95];
 		Class106.anIntArray799 = new int[Class9.anInt95];
 		Class9.anIntArray94 = new int[Class9.anInt95];
 		Class9.aByteArrayArray97 = new byte[Class9.anInt95][];
 		var1.position = var0.length - 7 - (Class9.anInt95 * 8);
-		Canvas_Sub1.anInt1594 = var1.method566();
-		Class9.anInt96 = var1.method566();
+		Canvas_Sub1.anInt1594 = var1.readShort();
+		Class9.anInt96 = var1.readShort();
 		final int var4 = (var1.method564() & 255) + 1;
 
 		int var2;
 		for (var2 = 0; var2 < Class9.anInt95; ++var2)
-			Class9.anIntArray92[var2] = var1.method566();
+			Class9.anIntArray92[var2] = var1.readShort();
 
 		for (var2 = 0; var2 < Class9.anInt95; ++var2)
-			Class9.anIntArray93[var2] = var1.method566();
+			Class9.anIntArray93[var2] = var1.readShort();
 
 		for (var2 = 0; var2 < Class9.anInt95; ++var2)
-			Class106.anIntArray799[var2] = var1.method566();
+			Class106.anIntArray799[var2] = var1.readShort();
 
 		for (var2 = 0; var2 < Class9.anInt95; ++var2)
-			Class9.anIntArray94[var2] = var1.method566();
+			Class9.anIntArray94[var2] = var1.readShort();
 
 		var1.position = var0.length - 7 - (Class9.anInt95 * 8) - ((var4 - 1) * 3);
 		Class35.anIntArray336 = new int[var4];

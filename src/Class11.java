@@ -23,8 +23,8 @@ public class Class11 {
 			}
 		}
 
-		anInt106 = var1.method566();
-		anInt107 = var1.method566();
+		anInt106 = var1.readShort();
+		anInt107 = var1.readShort();
 	}
 
 	final byte[] method60() {

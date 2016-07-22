@@ -6,7 +6,7 @@ public class Class109_Sub21_Sub8 extends Class109_Sub21 {
 
 	void method712(final DataBuffer var1, final int var2) {
 		if (var2 == 1) {
-			anInt1409 = var1.method566();
+			anInt1409 = var1.readShort();
 			anInt1410 = var1.method564();
 			anInt1411 = var1.method564();
 		}

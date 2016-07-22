@@ -24,13 +24,13 @@ public abstract class Class104 {
 		final int var4 = var2.method564();
 		if ((var4 >= 5) && (var4 <= 7)) {
 			if (var4 >= 6)
-				var2.method568();
+				var2.readInt();
 
 			final int var3 = var2.method564();
 			if (var4 >= 7)
 				anInt785 = var2.method598();
 			else
-				anInt785 = var2.method566();
+				anInt785 = var2.readShort();
 
 			int var10 = 0;
 			int var8 = -1;
@@ -44,7 +44,7 @@ public abstract class Class104 {
 				}
 			else
 				for (var9 = 0; var9 < anInt785; ++var9) {
-					anIntArray792[var9] = var10 += var2.method566();
+					anIntArray792[var9] = var10 += var2.readShort();
 					if (anIntArray792[var9] > var8)
 						var8 = anIntArray792[var9];
 				}
@@ -59,19 +59,19 @@ public abstract class Class104 {
 				anIntArray776 = new int[var8 + 1];
 
 				for (var9 = 0; var9 < anInt785; ++var9)
-					anIntArray776[anIntArray792[var9]] = var2.method568();
+					anIntArray776[anIntArray792[var9]] = var2.readInt();
 
 				aClass117_780 = new Class117(anIntArray776);
 			}
 
 			for (var9 = 0; var9 < anInt785; ++var9)
-				anIntArray791[anIntArray792[var9]] = var2.method568();
+				anIntArray791[anIntArray792[var9]] = var2.readInt();
 
 			for (var9 = 0; var9 < anInt785; ++var9)
-				anIntArray778[anIntArray792[var9]] = var2.method568();
+				anIntArray778[anIntArray792[var9]] = var2.readInt();
 
 			for (var9 = 0; var9 < anInt785; ++var9)
-				anIntArray779[anIntArray792[var9]] = var2.method566();
+				anIntArray779[anIntArray792[var9]] = var2.readShort();
 
 			int var5;
 			int var6;
@@ -103,7 +103,7 @@ public abstract class Class104 {
 					anIntArrayArray784[var5] = new int[var6];
 
 					for (var12 = 0; var12 < var6; ++var12) {
-						var11 = anIntArrayArray784[var5][var12] = var10 += var2.method566();
+						var11 = anIntArrayArray784[var5][var12] = var10 += var2.readShort();
 						if (var11 > var7)
 							var7 = var11;
 					}
@@ -121,7 +121,7 @@ public abstract class Class104 {
 					anIntArrayArray787[var5] = new int[anObjectArrayArray775[var5].length];
 
 					for (var7 = 0; var7 < var6; ++var7)
-						anIntArrayArray787[var5][anIntArrayArray784[var5][var7]] = var2.method568();
+						anIntArrayArray787[var5][anIntArrayArray784[var5][var7]] = var2.readInt();
 
 					aClass117Array782[var5] = new Class117(anIntArrayArray787[var5]);
 				}
@@ -262,7 +262,7 @@ public abstract class Class104 {
 						var15 = 0;
 
 						for (var16 = 0; var16 < var3; ++var16) {
-							var15 += var12.method568();
+							var15 += var12.readInt();
 							var13[var16] += var15;
 						}
 					}
@@ -281,7 +281,7 @@ public abstract class Class104 {
 						int var18 = 0;
 
 						for (int var19 = 0; var19 < var3; ++var19) {
-							var18 += var12.method568();
+							var18 += var12.readInt();
 							System.arraycopy(var20, var15, var17[var19], var13[var19], var18);
 							var13[var19] += var18;
 							var15 += var18;

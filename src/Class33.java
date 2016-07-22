@@ -54,7 +54,7 @@ public class Class33 {
 						var7 = Class106.anIntArray798[var2[var4++]];
 
 					if (var6 == 6)
-						var7 = Class91.anIntArray689[client.anIntArray2106[var2[var4++]] - 1];
+						var7 = PacketDecoder1.anIntArray689[client.anIntArray2106[var2[var4++]] - 1];
 
 					if (var6 == 7)
 						var7 = (Class106.anIntArray798[var2[var4++]] * 100) / '\ub71b';
@@ -64,7 +64,7 @@ public class Class33 {
 
 					if (var6 == 9)
 						for (var9 = 0; var9 < 25; ++var9)
-							if (Class91.aBoolArray688[var9])
+							if (PacketDecoder1.aBoolArray688[var9])
 								var7 += client.anIntArray2106[var9];
 
 					if (var6 == 10) {

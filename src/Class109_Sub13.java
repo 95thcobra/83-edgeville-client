@@ -23,11 +23,11 @@ public class Class109_Sub13 extends Class109 {
 				var2 = new Class109_Sub21_Sub16();
 				final DataBuffer var5 = new DataBuffer(var4);
 				var5.position = var5.data.length - 12;
-				final int var6 = var5.method568();
-				var2.anInt1584 = var5.method566();
-				var2.anInt1581 = var5.method566();
-				var2.anInt1580 = var5.method566();
-				var2.anInt1582 = var5.method566();
+				final int var6 = var5.readInt();
+				var2.anInt1584 = var5.readShort();
+				var2.anInt1581 = var5.readShort();
+				var2.anInt1580 = var5.readShort();
+				var2.anInt1582 = var5.readShort();
 				var5.position = 0;
 				var5.method570();
 				var2.anIntArray1578 = new int[var6];
@@ -37,11 +37,11 @@ public class Class109_Sub13 extends Class109 {
 				int var3;
 				for (int var7 = 0; var5.position < (var5.data.length
 						- 12); var2.anIntArray1578[var7++] = var3) {
-					var3 = var5.method566();
+					var3 = var5.readShort();
 					if (var3 == 3)
 						var2.aStringArray1579[var7] = var5.method602();
 					else if ((var3 < 100) && (var3 != 21) && (var3 != 38) && (var3 != 39))
-						var2.anIntArray1585[var7] = var5.method568();
+						var2.anIntArray1585[var7] = var5.readInt();
 					else
 						var2.anIntArray1585[var7] = var5.method564();
 				}
@@ -100,14 +100,14 @@ public class Class109_Sub13 extends Class109 {
 				final byte[] var1 = Class109_Sub21_Sub19.aClass44_1635.method229(-914418587);
 				if (var1 != null) {
 					final DataBuffer var2 = new DataBuffer(var1);
-					Class46.anInt481 = var2.method566();
+					Class46.anInt481 = var2.readShort();
 					Class46.aClass46Array485 = new Class46[Class46.anInt481];
 
 					Class46 var4;
 					for (int var3 = 0; var3 < Class46.anInt481; var4.anInt491 = var3++) {
 						var4 = Class46.aClass46Array485[var3] = new Class46();
-						var4.anInt492 = var2.method566();
-						var4.anInt480 = var2.method568();
+						var4.anInt492 = var2.readShort();
+						var4.anInt480 = var2.readInt();
 						var4.aString487 = var2.method602();
 						var4.aString488 = var2.method602();
 						var4.anInt489 = var2.method564();

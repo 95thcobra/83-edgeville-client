@@ -54,8 +54,8 @@ public class Class57_Sub2 extends Class57 {
 
 	static final void method625(final boolean var0) {
 		while (true) {
-			if (client.aClass109_Sub14_Sub1_2211.method846(client.anInt2012) >= 27) {
-				final int var2 = client.aClass109_Sub14_Sub1_2211.method844(15);
+			if (client.gameBuffer.method846(client.anInt2012) >= 27) {
+				final int var2 = client.gameBuffer.method844(15);
 				if (var2 != 32767) {
 					boolean var4 = false;
 					if (null == client.aClass109_Sub21_Sub15_Sub3_Sub1Array2006[var2]) {
@@ -68,34 +68,34 @@ public class Class57_Sub2 extends Class57 {
 					var1.anInt1700 = client.anInt1979;
 					int var3;
 					if (var0) {
-						var3 = client.aClass109_Sub14_Sub1_2211.method844(8);
+						var3 = client.gameBuffer.method844(8);
 						if (var3 > 127)
 							var3 -= 256;
 					} else {
-						var3 = client.aClass109_Sub14_Sub1_2211.method844(5);
+						var3 = client.gameBuffer.method844(5);
 						if (var3 > 15)
 							var3 -= 32;
 					}
 
 					int var5;
 					if (var0) {
-						var5 = client.aClass109_Sub14_Sub1_2211.method844(8);
+						var5 = client.gameBuffer.method844(8);
 						if (var5 > 127)
 							var5 -= 256;
 					} else {
-						var5 = client.aClass109_Sub14_Sub1_2211.method844(5);
+						var5 = client.gameBuffer.method844(5);
 						if (var5 > 15)
 							var5 -= 32;
 					}
 
-					final int var7 = client.aClass109_Sub14_Sub1_2211.method844(1);
+					final int var7 = client.gameBuffer.method844(1);
 					if (var7 == 1)
 						client.anIntArray2186[++client.anInt2089 - 1] = var2;
 
-					final int var6 = client.aClass109_Sub14_Sub1_2211.method844(1);
+					final int var6 = client.gameBuffer.method844(1);
 					var1.aClass109_Sub21_Sub13_1925 = Class122
-							.method444(client.aClass109_Sub14_Sub1_2211.method844(14));
-					final int var8 = client.anIntArray2099[client.aClass109_Sub14_Sub1_2211.method844(3)];
+							.method444(client.gameBuffer.method844(14));
+					final int var8 = client.anIntArray2099[client.gameBuffer.method844(3)];
 					if (var4)
 						var1.anInt1680 = var1.anInt1654 = var8;
 
@@ -118,7 +118,7 @@ public class Class57_Sub2 extends Class57 {
 				}
 			}
 
-			client.aClass109_Sub14_Sub1_2211.method845();
+			client.gameBuffer.method845();
 			return;
 		}
 	}

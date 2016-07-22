@@ -1170,7 +1170,7 @@ public final class Class109_Sub10 extends Class109 {
 				if (var17 != null) {
 					var1 = ((Class109_Sub21_Sub9.anIntArray1422[var4] >> 8) * 64) - Class41.anInt375;
 					var10 = (64 * (Class109_Sub21_Sub9.anIntArray1422[var4] & 255)) - Class113.anInt822;
-					if (client.aBool2141) {
+					if (client.dynamicRegion) {
 						var1 = 10;
 						var10 = 10;
 					}
@@ -1254,7 +1254,7 @@ public final class Class109_Sub10 extends Class109 {
 				Class6.method41();
 				Class32.method142(true);
 				int var16;
-				if (!client.aBool2141) {
+				if (!client.dynamicRegion) {
 					byte[] var25;
 					for (var0 = 0; var0 < var4; ++var0) {
 						var1 = ((Class109_Sub21_Sub9.anIntArray1422[var0] >> 8) * 64) - Class41.anInt375;
@@ -1293,7 +1293,7 @@ public final class Class109_Sub10 extends Class109 {
 				int var30;
 				int var33;
 				int var50;
-				if (client.aBool2141) {
+				if (client.dynamicRegion) {
 					for (var0 = 0; var0 < 4; ++var0) {
 						Class52.method255();
 
@@ -1498,7 +1498,7 @@ public final class Class109_Sub10 extends Class109 {
 					client.secureBuffer.writeInt(1057001181);
 				}
 
-				if (!client.aBool2141) {
+				if (!client.dynamicRegion) {
 					var1 = (Class109_Sub21_Sub11.anInt1493 - 6) / 8;
 					var10 = (Class109_Sub21_Sub11.anInt1493 + 6) / 8;
 					var16 = (Class27.anInt259 - 6) / 8;

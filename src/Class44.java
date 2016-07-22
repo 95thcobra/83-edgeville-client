@@ -139,7 +139,7 @@ public class Class44 {
 
 					anInt448 += aDataInputStream446.read(aByteArray447, anInt448, var3);
 					if (anInt448 == 4) {
-						final int var2 = (new DataBuffer(aByteArray447)).method568();
+						final int var2 = (new DataBuffer(aByteArray447)).readInt();
 						aByteArray449 = new byte[var2];
 						anInt445 = 2;
 					}

@@ -259,39 +259,39 @@ public class Class109_Sub21_Sub5 extends Class109_Sub21 {
 
 	void method693(final DataBuffer var1, final int var2) {
 		if (var2 == 1)
-			anInt1345 = var1.method566();
+			anInt1345 = var1.readShort();
 		else if (var2 == 2)
 			aString1372 = var1.method602();
 		else if (var2 == 4)
-			anInt1351 = var1.method566();
+			anInt1351 = var1.readShort();
 		else if (var2 == 5)
-			anInt1352 = var1.method566();
+			anInt1352 = var1.readShort();
 		else if (var2 == 6)
-			anInt1353 = var1.method566();
+			anInt1353 = var1.readShort();
 		else if (var2 == 7) {
-			anInt1355 = var1.method566();
+			anInt1355 = var1.readShort();
 			if (anInt1355 > 32767)
 				anInt1355 -= 65536;
 		} else if (var2 == 8) {
-			anInt1346 = var1.method566();
+			anInt1346 = var1.readShort();
 			if (anInt1346 > 32767)
 				anInt1346 -= 65536;
 		} else if (var2 == 11)
 			anInt1378 = 1;
 		else if (var2 == 12)
-			anInt1358 = var1.method568();
+			anInt1358 = var1.readInt();
 		else if (var2 == 16)
 			aBool1367 = true;
 		else if (var2 == 23) {
-			anInt1362 = var1.method566();
+			anInt1362 = var1.readShort();
 			anInt1364 = var1.method564();
 		} else if (var2 == 24)
-			anInt1337 = var1.method566();
+			anInt1337 = var1.readShort();
 		else if (var2 == 25) {
-			anInt1365 = var1.method566();
+			anInt1365 = var1.readShort();
 			anInt1366 = var1.method564();
 		} else if (var2 == 26)
-			anInt1374 = var1.method566();
+			anInt1374 = var1.readShort();
 		else if ((var2 >= 30) && (var2 < 35)) {
 			aStringArray1339[var2 - 30] = var1.method602();
 			if (aStringArray1339[var2 - 30].equalsIgnoreCase("Hidden"))
@@ -307,8 +307,8 @@ public class Class109_Sub21_Sub5 extends Class109_Sub21 {
 				aShortArray1348 = new short[var3];
 
 				for (var4 = 0; var4 < var3; ++var4) {
-					aShortArray1347[var4] = (short) var1.method566();
-					aShortArray1348[var4] = (short) var1.method566();
+					aShortArray1347[var4] = (short) var1.readShort();
+					aShortArray1348[var4] = (short) var1.readShort();
 				}
 			} else if (var2 == 41) {
 				var3 = var1.method564();
@@ -316,43 +316,43 @@ public class Class109_Sub21_Sub5 extends Class109_Sub21 {
 				aShortArray1350 = new short[var3];
 
 				for (var4 = 0; var4 < var3; ++var4) {
-					aShortArray1349[var4] = (short) var1.method566();
-					aShortArray1350[var4] = (short) var1.method566();
+					aShortArray1349[var4] = (short) var1.readShort();
+					aShortArray1350[var4] = (short) var1.readShort();
 				}
 			} else if (var2 == 65)
 				aBool1381 = true;
 			else if (var2 == 78)
-				anInt1336 = var1.method566();
+				anInt1336 = var1.readShort();
 			else if (var2 == 79)
-				anInt1368 = var1.method566();
+				anInt1368 = var1.readShort();
 			else if (var2 == 90)
-				anInt1369 = var1.method566();
+				anInt1369 = var1.readShort();
 			else if (var2 == 91)
-				anInt1371 = var1.method566();
+				anInt1371 = var1.readShort();
 			else if (var2 == 92)
-				anInt1370 = var1.method566();
+				anInt1370 = var1.readShort();
 			else if (var2 == 93)
-				anInt1385 = var1.method566();
+				anInt1385 = var1.readShort();
 			else if (var2 == 95)
-				anInt1354 = var1.method566();
+				anInt1354 = var1.readShort();
 			else if (var2 == 97)
-				anInt1356 = var1.method566();
+				anInt1356 = var1.readShort();
 			else if (var2 == 98)
-				anInt1376 = var1.method566();
+				anInt1376 = var1.readShort();
 			else if ((var2 >= 100) && (var2 < 110)) {
 				if (null == anIntArray1373) {
 					anIntArray1373 = new int[10];
 					anIntArray1360 = new int[10];
 				}
 
-				anIntArray1373[var2 - 100] = var1.method566();
-				anIntArray1360[var2 - 100] = var1.method566();
+				anIntArray1373[var2 - 100] = var1.readShort();
+				anIntArray1360[var2 - 100] = var1.readShort();
 			} else if (var2 == 110)
-				anInt1359 = var1.method566();
+				anInt1359 = var1.readShort();
 			else if (var2 == 111)
-				anInt1375 = var1.method566();
+				anInt1375 = var1.readShort();
 			else if (var2 == 112)
-				anInt1377 = var1.method566();
+				anInt1377 = var1.readShort();
 			else if (var2 == 113)
 				anInt1363 = var1.method612();
 			else if (var2 == 114)
@@ -360,9 +360,9 @@ public class Class109_Sub21_Sub5 extends Class109_Sub21 {
 			else if (var2 == 115)
 				anInt1380 = var1.method564();
 			else if (var2 == 139)
-				anInt1382 = var1.method566();
+				anInt1382 = var1.readShort();
 			else if (var2 == 140)
-				anInt1383 = var1.method566();
+				anInt1383 = var1.readShort();
 		}
 
 	}

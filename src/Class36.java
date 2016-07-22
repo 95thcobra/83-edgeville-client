@@ -3,7 +3,7 @@ public class Class36 {
 	String aString338;
 
 	static final void method159(final Class2 var0, final int var1, final int var2) {
-		Class91.method355(var0.anInt16, var0.anInt12, var0.anInt13, var0.anInt14, var0.aString15, var0.aString15, var1,
+		PacketDecoder1.method355(var0.anInt16, var0.anInt12, var0.anInt13, var0.anInt14, var0.aString15, var0.aString15, var1,
 				var2);
 	}
 

@@ -8,7 +8,7 @@ public class Class109_Sub21_Sub6 extends Class109_Sub21 {
 
 	void method700(final DataBuffer var1, final int var2) {
 		if (var2 == 2)
-			anInt1387 = var1.method566();
+			anInt1387 = var1.readShort();
 
 	}
 

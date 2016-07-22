@@ -145,19 +145,19 @@ public class Class109_Sub20 extends Class109 {
 		aBool1146 = false;
 		anInt1229 = var1.method564();
 		anInt1263 = var1.method564();
-		anInt1151 = var1.method566();
+		anInt1151 = var1.readShort();
 		anInt1210 = var1.method575();
 		anInt1157 = var1.method575();
-		anInt1274 = var1.method566();
-		anInt1241 = var1.method566();
+		anInt1274 = var1.readShort();
+		anInt1241 = var1.readShort();
 		anInt1177 = var1.method564();
-		anInt1166 = var1.method566();
+		anInt1166 = var1.readShort();
 		if (anInt1166 == '\uffff')
 			anInt1166 = -1;
 		else
 			anInt1166 += anInt1148 & -65536;
 
-		anInt1260 = var1.method566();
+		anInt1260 = var1.readShort();
 		if (anInt1260 == '\uffff')
 			anInt1260 = -1;
 
@@ -169,7 +169,7 @@ public class Class109_Sub20 extends Class109 {
 
 			for (var6 = 0; var6 < var5; ++var6) {
 				anIntArray1258[var6] = var1.method564();
-				anIntArray1259[var6] = var1.method566();
+				anIntArray1259[var6] = var1.readShort();
 			}
 		}
 
@@ -181,11 +181,11 @@ public class Class109_Sub20 extends Class109 {
 			anIntArrayArray1224 = new int[var6][];
 
 			for (var4 = 0; var4 < var6; ++var4) {
-				var3 = var1.method566();
+				var3 = var1.readShort();
 				anIntArrayArray1224[var4] = new int[var3];
 
 				for (var2 = 0; var2 < var3; ++var2) {
-					anIntArrayArray1224[var4][var2] = var1.method566();
+					anIntArrayArray1224[var4][var2] = var1.readShort();
 					if (anIntArrayArray1224[var4][var2] == '\uffff')
 						anIntArrayArray1224[var4][var2] = -1;
 				}
@@ -193,12 +193,12 @@ public class Class109_Sub20 extends Class109 {
 		}
 
 		if (anInt1229 == 0) {
-			anInt1171 = var1.method566();
+			anInt1171 = var1.readShort();
 			aBool1167 = var1.method564() == 1;
 		}
 
 		if (anInt1229 == 1) {
-			var1.method566();
+			var1.readShort();
 			var1.method564();
 		}
 
@@ -233,7 +233,7 @@ public class Class109_Sub20 extends Class109 {
 				if (var10 == 1) {
 					anIntArray1213[var8] = var1.method575();
 					anIntArray1214[var8] = var1.method575();
-					anIntArray1215[var8] = var1.method568();
+					anIntArray1215[var8] = var1.readInt();
 				} else
 					anIntArray1215[var8] = -1;
 			}
@@ -256,7 +256,7 @@ public class Class109_Sub20 extends Class109 {
 			anInt1208 = var1.method564();
 			anInt1209 = var1.method564();
 			anInt1207 = var1.method564();
-			anInt1204 = var1.method566();
+			anInt1204 = var1.readShort();
 			if (anInt1204 == '\uffff')
 				anInt1204 = -1;
 
@@ -269,53 +269,53 @@ public class Class109_Sub20 extends Class109 {
 		}
 
 		if ((anInt1229 == 1) || (anInt1229 == 3) || (anInt1229 == 4))
-			anInt1220 = var1.method568();
+			anInt1220 = var1.readInt();
 
 		if ((anInt1229 == 3) || (anInt1229 == 4)) {
-			anInt1180 = var1.method568();
-			anInt1174 = var1.method568();
-			anInt1175 = var1.method568();
+			anInt1180 = var1.readInt();
+			anInt1174 = var1.readInt();
+			anInt1175 = var1.readInt();
 		}
 
 		if (anInt1229 == 5) {
-			anInt1164 = var1.method568();
-			anInt1181 = var1.method568();
+			anInt1164 = var1.readInt();
+			anInt1181 = var1.readInt();
 		}
 
 		if (anInt1229 == 6) {
 			anInt1188 = 1;
-			anInt1189 = var1.method566();
+			anInt1189 = var1.readShort();
 			if (anInt1189 == '\uffff')
 				anInt1189 = -1;
 
 			anInt1190 = 1;
-			anInt1191 = var1.method566();
+			anInt1191 = var1.readShort();
 			if (anInt1191 == '\uffff')
 				anInt1191 = -1;
 
-			anInt1192 = var1.method566();
+			anInt1192 = var1.readShort();
 			if (anInt1192 == '\uffff')
 				anInt1192 = -1;
 
-			anInt1158 = var1.method566();
+			anInt1158 = var1.readShort();
 			if (anInt1158 == '\uffff')
 				anInt1158 = -1;
 
-			anInt1199 = var1.method566();
-			anInt1273 = var1.method566();
-			anInt1193 = var1.method566();
+			anInt1199 = var1.readShort();
+			anInt1273 = var1.readShort();
+			anInt1193 = var1.readShort();
 		}
 
 		if (anInt1229 == 7) {
 			anIntArray1149 = new int[anInt1274 * anInt1241];
 			anIntArray1264 = new int[anInt1274 * anInt1241];
 			anInt1208 = var1.method564();
-			anInt1204 = var1.method566();
+			anInt1204 = var1.readShort();
 			if (anInt1204 == '\uffff')
 				anInt1204 = -1;
 
 			aBool1250 = var1.method564() == 1;
-			anInt1220 = var1.method568();
+			anInt1220 = var1.readInt();
 			anInt1234 = var1.method575();
 			anInt1212 = var1.method575();
 			var4 = var1.method564();
@@ -339,7 +339,7 @@ public class Class109_Sub20 extends Class109 {
 		if ((anInt1263 == 2) || (anInt1229 == 2)) {
 			aString1276 = var1.method602();
 			aString1261 = var1.method602();
-			var4 = var1.method566() & 63;
+			var4 = var1.readShort() & 63;
 			anInt1253 |= var4 << 11;
 		}
 
@@ -376,7 +376,7 @@ public class Class109_Sub20 extends Class109 {
 			final int[] var3 = new int[var2];
 
 			for (int var4 = 0; var4 < var2; ++var4)
-				var3[var4] = var1.method568();
+				var3[var4] = var1.readInt();
 
 			return var3;
 		}
@@ -587,7 +587,7 @@ public class Class109_Sub20 extends Class109 {
 			for (int var4 = 0; var4 < var2; ++var4) {
 				final int var5 = var1.method564();
 				if (var5 == 0)
-					var3[var4] = new Integer(var1.method568());
+					var3[var4] = new Integer(var1.readInt());
 				else if (var5 == 1)
 					var3[var4] = var1.method602();
 			}
@@ -601,20 +601,20 @@ public class Class109_Sub20 extends Class109 {
 		var1.method564();
 		aBool1146 = true;
 		anInt1229 = var1.method564();
-		anInt1151 = var1.method566();
+		anInt1151 = var1.readShort();
 		anInt1210 = var1.method575();
 		anInt1157 = var1.method575();
-		anInt1274 = var1.method566();
+		anInt1274 = var1.readShort();
 		if (anInt1229 == 9)
 			anInt1241 = var1.method575();
 		else
-			anInt1241 = var1.method566();
+			anInt1241 = var1.readShort();
 
 		anInt1154 = var1.method612();
 		anInt1225 = var1.method612();
 		anInt1152 = var1.method612();
 		anInt1153 = var1.method612();
-		anInt1166 = var1.method566();
+		anInt1166 = var1.readShort();
 		if (anInt1166 == '\uffff')
 			anInt1166 = -1;
 		else
@@ -622,49 +622,49 @@ public class Class109_Sub20 extends Class109 {
 
 		aBool1167 = var1.method564() == 1;
 		if (anInt1229 == 0) {
-			anInt1170 = var1.method566();
-			anInt1171 = var1.method566();
+			anInt1170 = var1.readShort();
+			anInt1171 = var1.readShort();
 			aBool1223 = var1.method564() == 1;
 		}
 
 		if (anInt1229 == 5) {
-			anInt1164 = var1.method568();
-			anInt1182 = var1.method566();
+			anInt1164 = var1.readInt();
+			anInt1182 = var1.readShort();
 			aBool1183 = var1.method564() == 1;
 			anInt1177 = var1.method564();
 			anInt1184 = var1.method564();
-			anInt1185 = var1.method568();
+			anInt1185 = var1.readInt();
 			aBool1186 = var1.method564() == 1;
 			aBool1187 = var1.method564() == 1;
 		}
 
 		if (anInt1229 == 6) {
 			anInt1188 = 1;
-			anInt1189 = var1.method566();
+			anInt1189 = var1.readShort();
 			if (anInt1189 == '\uffff')
 				anInt1189 = -1;
 
 			anInt1194 = var1.method575();
 			anInt1244 = var1.method575();
-			anInt1273 = var1.method566();
-			anInt1193 = var1.method566();
-			anInt1198 = var1.method566();
-			anInt1199 = var1.method566();
-			anInt1192 = var1.method566();
+			anInt1273 = var1.readShort();
+			anInt1193 = var1.readShort();
+			anInt1198 = var1.readShort();
+			anInt1199 = var1.readShort();
+			anInt1192 = var1.readShort();
 			if (anInt1192 == '\uffff')
 				anInt1192 = -1;
 
 			aBool1271 = var1.method564() == 1;
-			var1.method566();
+			var1.readShort();
 			if (anInt1154 != 0)
-				anInt1240 = var1.method566();
+				anInt1240 = var1.readShort();
 
 			if (anInt1225 != 0)
-				var1.method566();
+				var1.readShort();
 		}
 
 		if (anInt1229 == 4) {
-			anInt1204 = var1.method566();
+			anInt1204 = var1.readShort();
 			if (anInt1204 == '\uffff')
 				anInt1204 = -1;
 
@@ -673,18 +673,18 @@ public class Class109_Sub20 extends Class109 {
 			anInt1208 = var1.method564();
 			anInt1209 = var1.method564();
 			aBool1250 = var1.method564() == 1;
-			anInt1220 = var1.method568();
+			anInt1220 = var1.readInt();
 		}
 
 		if (anInt1229 == 3) {
-			anInt1220 = var1.method568();
+			anInt1220 = var1.readInt();
 			aBool1176 = var1.method564() == 1;
 			anInt1177 = var1.method564();
 		}
 
 		if (anInt1229 == 9) {
 			anInt1257 = var1.method564();
-			anInt1220 = var1.method568();
+			anInt1220 = var1.readInt();
 			aBool1179 = var1.method564() == 1;
 		}
 

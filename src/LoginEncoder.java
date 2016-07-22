@@ -49,7 +49,7 @@ public final class LoginEncoder {
 				client.secureBuffer.position = 0;
 				client.secureBuffer.writeByte(14);
 				Class48.aClass82_506.method342(client.secureBuffer.data, 0, 1);
-				client.aClass109_Sub14_Sub1_2211.position = 0;
+				client.gameBuffer.position = 0;
 				client.loginStage = 3;
 			}
 
@@ -73,7 +73,7 @@ public final class LoginEncoder {
 					return;
 				}
 
-				client.aClass109_Sub14_Sub1_2211.position = 0;
+				client.gameBuffer.position = 0;
 				client.loginStage = 5;
 			}
 
@@ -157,7 +157,7 @@ public final class LoginEncoder {
 				for (int var5 = 0; var5 < 4; ++var5)
 					isaacSeed[var5] += 50;
 
-				client.aClass109_Sub14_Sub1_2211.method841(isaacSeed);
+				client.gameBuffer.method841(isaacSeed);
 				client.loginStage = 6;
 			}
 
@@ -170,8 +170,8 @@ public final class LoginEncoder {
 				else {
 					if ((var0 == 15) && (client.anInt2180 == 40)) {
 						client.secureBuffer.position = 0;
-						client.aClass109_Sub14_Sub1_2211.position = 0;
-						client.anInt2013 = -1;
+						client.gameBuffer.position = 0;
+						client.incomingMessage = -1;
 						client.anInt2153 = 1;
 						client.anInt2018 = -1;
 						client.anInt2019 = -1;
@@ -225,13 +225,13 @@ public final class LoginEncoder {
 			} else {
 				if ((client.loginStage == 9) && (Class48.aClass82_506.method340() >= 13)) {
 					final boolean var10 = Class48.aClass82_506.method339() == 1;
-					Class48.aClass82_506.method341(client.aClass109_Sub14_Sub1_2211.data, 0, 4);
-					client.aClass109_Sub14_Sub1_2211.position = 0;
+					Class48.aClass82_506.method341(client.gameBuffer.data, 0, 4);
+					client.gameBuffer.position = 0;
 					if (var10) {
-						var2 = client.aClass109_Sub14_Sub1_2211.method842() << 24;
-						var2 |= client.aClass109_Sub14_Sub1_2211.method842() << 16;
-						var2 |= client.aClass109_Sub14_Sub1_2211.method842() << 8;
-						var2 |= client.aClass109_Sub14_Sub1_2211.method842();
+						var2 = client.gameBuffer.method842() << 24;
+						var2 |= client.gameBuffer.method842() << 16;
+						var2 |= client.gameBuffer.method842() << 8;
+						var2 |= client.gameBuffer.method842();
 						var3 = Class44.method226(Class5.aString67);
 						if ((Class50.aClass21_513.aLinkedHashMap199.size() >= 10) && !Class50.aClass21_513.aLinkedHashMap199.containsKey(Integer.valueOf(var3))) {
 							final Iterator var12 = Class50.aClass21_513.aLinkedHashMap199.entrySet().iterator();
@@ -249,12 +249,12 @@ public final class LoginEncoder {
 					client.anInt2092 <<= 8;
 					client.anInt2092 += Class48.aClass82_506.method339();
 					client.anInt2154 = Class48.aClass82_506.method339();
-					Class48.aClass82_506.method341(client.aClass109_Sub14_Sub1_2211.data, 0, 1);
-					client.aClass109_Sub14_Sub1_2211.position = 0;
-					client.anInt2013 = client.aClass109_Sub14_Sub1_2211.method842();
-					Class48.aClass82_506.method341(client.aClass109_Sub14_Sub1_2211.data, 0, 2);
-					client.aClass109_Sub14_Sub1_2211.position = 0;
-					client.anInt2012 = client.aClass109_Sub14_Sub1_2211.method566();
+					Class48.aClass82_506.method341(client.gameBuffer.data, 0, 1);
+					client.gameBuffer.position = 0;
+					client.incomingMessage = client.gameBuffer.method842();
+					Class48.aClass82_506.method341(client.gameBuffer.data, 0, 2);
+					client.gameBuffer.position = 0;
+					client.anInt2012 = client.gameBuffer.readShort();
 					client var6;
 					if (client.anInt2154 == 1)
 						try {
@@ -276,12 +276,12 @@ public final class LoginEncoder {
 
 				if (client.loginStage == 10) {
 					if (Class48.aClass82_506.method340() >= client.anInt2012) {
-						client.aClass109_Sub14_Sub1_2211.position = 0;
-						Class48.aClass82_506.method341(client.aClass109_Sub14_Sub1_2211.data, 0, client.anInt2012);
+						client.gameBuffer.position = 0;
+						Class48.aClass82_506.method341(client.gameBuffer.data, 0, client.anInt2012);
 						Class109_Sub21_Sub15_Sub3_Sub2.method1038();
 						Class109_Sub21_Sub11.anInt1493 = -1;
-						Class109_Sub7.method524(false);
-						client.anInt2013 = -1;
+						Class109_Sub7.decodeMapRegion(false);
+						client.incomingMessage = -1;
 					}
 
 				} else {

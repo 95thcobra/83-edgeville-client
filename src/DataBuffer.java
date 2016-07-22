@@ -62,7 +62,7 @@ public class DataBuffer extends Class109 {
 		}
 	}
 
-	public int method559() {
+	public int readShortA() {
 		position += 2;
 		return ((data[position - 1] - 128) & 255) + ((data[position - 2] & 255) << 8);
 	}
@@ -168,21 +168,19 @@ public class DataBuffer extends Class109 {
 			throw new IllegalArgumentException();
 	}
 
-	public int method566() {
+	public int readShort() {
 		position += 2;
 		return (data[position - 1] & 255) + ((data[position - 2] & 255) << 8);
 	}
 
 	public int method567() {
 		position += 3;
-		return (data[position - 1] & 255) + ((data[position - 2] & 255) << 8)
-				+ ((data[position - 3] & 255) << 16);
+		return (data[position - 1] & 255) + ((data[position - 2] & 255) << 8) + ((data[position - 3] & 255) << 16);
 	}
 
-	public int method568() {
+	public int readInt() {
 		position += 4;
-		return ((data[position - 4] & 255) << 24) + ((data[position - 3] & 255) << 16)
-				+ ((data[position - 2] & 255) << 8) + (data[position - 1] & 255);
+		return ((data[position - 4] & 255) << 24) + ((data[position - 3] & 255) << 16) + ((data[position - 2] & 255) << 8) + (data[position - 1] & 255);
 	}
 
 	public void writeTriByte(final int var1) {
@@ -232,12 +230,12 @@ public class DataBuffer extends Class109 {
 
 	public int method573() {
 		final int var1 = data[position] & 255;
-		return var1 < 128 ? method564() - 64 : method566() - '\uc000';
+		return var1 < 128 ? method564() - 64 : readShort() - '\uc000';
 	}
 
 	public int method574() {
 		final int var1 = data[position] & 255;
-		return var1 < 128 ? method564() : method566() - '\u8000';
+		return var1 < 128 ? method564() : readShort() - '\u8000';
 	}
 
 	public int method575() {
@@ -254,13 +252,12 @@ public class DataBuffer extends Class109 {
 		position = 0;
 
 		for (int var4 = 0; var4 < var2; ++var4) {
-			int var8 = method568();
-			int var3 = method568();
+			int var8 = readInt();
+			int var3 = readInt();
 			int var6 = 0;
 			final int var7 = -1640531527;
 
-			for (int var5 = 32; var5-- > 0; var3 += (((var8 << 4) ^ (var8 >>> 5)) + var8)
-					^ (var1[(var6 >>> 11) & 3] + var6)) {
+			for (int var5 = 32; var5-- > 0; var3 += (((var8 << 4) ^ (var8 >>> 5)) + var8) ^ (var1[(var6 >>> 11) & 3] + var6)) {
 				var8 += (((var3 << 4) ^ (var3 >>> 5)) + var3) ^ (var6 + var1[var6 & 3]);
 				var6 += var7;
 			}
@@ -277,8 +274,8 @@ public class DataBuffer extends Class109 {
 		position = 0;
 
 		for (int var8 = 0; var8 < var2; ++var8) {
-			int var6 = method568();
-			int var7 = method568();
+			int var6 = readInt();
+			int var7 = readInt();
 			int var3 = -957401312;
 			final int var4 = -1640531527;
 
@@ -303,13 +300,12 @@ public class DataBuffer extends Class109 {
 		final int var6 = (var3 - var2) / 8;
 
 		for (int var5 = 0; var5 < var6; ++var5) {
-			int var10 = method568();
-			int var9 = method568();
+			int var10 = readInt();
+			int var9 = readInt();
 			int var7 = 0;
 			final int var8 = -1640531527;
 
-			for (int var11 = 32; var11-- > 0; var9 += (((var10 << 4) ^ (var10 >>> 5)) + var10)
-					^ (var7 + var1[(var7 >>> 11) & 3])) {
+			for (int var11 = 32; var11-- > 0; var9 += (((var10 << 4) ^ (var10 >>> 5)) + var10) ^ (var7 + var1[(var7 >>> 11) & 3])) {
 				var10 += (((var9 << 4) ^ (var9 >>> 5)) + var9) ^ (var7 + var1[var7 & 3]);
 				var7 += var8;
 			}
@@ -361,7 +357,7 @@ public class DataBuffer extends Class109 {
 			var4 = (var4 >>> 8) ^ anIntArray1056[(var4 ^ var5[var1]) & 255];
 
 		var4 = ~var4;
-		var1 = method568();
+		var1 = readInt();
 		return var1 == var4;
 	}
 
@@ -377,7 +373,7 @@ public class DataBuffer extends Class109 {
 		return (data[++position - 1] - 128) & 255;
 	}
 
-	public int method585() {
+	public int readByteS() {
 		return (128 - data[++position - 1]) & 255;
 	}
 
@@ -413,12 +409,12 @@ public class DataBuffer extends Class109 {
 		data[++position - 1] = (byte) (var1 >> 8);
 	}
 
-	public int method591() {
+	public int readLEShort() {
 		position += 2;
 		return ((data[position - 1] & 255) << 8) + (data[position - 2] & 255);
 	}
 
-	public int method592() {
+	public int readLEShortA() {
 		position += 2;
 		return ((data[position - 2] - 128) & 255) + ((data[position - 1] & 255) << 8);
 	}
@@ -462,13 +458,13 @@ public class DataBuffer extends Class109 {
 	}
 
 	public int method598() {
-		return data[position] < 0 ? method568() & Integer.MAX_VALUE : method566();
+		return data[position] < 0 ? readInt() & Integer.MAX_VALUE : readShort();
 	}
 
-	public int method599() {
+	// Middle endian int
+	public int readIntV1() {
 		position += 4;
-		return (data[position - 3] & 255) + ((data[position - 2] & 255) << 24)
-				+ ((data[position - 1] & 255) << 16) + ((data[position - 4] & 255) << 8);
+		return (data[position - 3] & 255) + ((data[position - 2] & 255) << 24) + ((data[position - 1] & 255) << 16) + ((data[position - 4] & 255) << 8);
 	}
 
 	public void method600(final byte[] var1, final int var2, final int var3) {
@@ -528,8 +524,8 @@ public class DataBuffer extends Class109 {
 		final int var5 = (var3 - var2) / 8;
 
 		for (int var6 = 0; var6 < var5; ++var6) {
-			int var8 = method568();
-			int var7 = method568();
+			int var8 = readInt();
+			int var7 = readInt();
 			int var9 = -957401312;
 			final int var10 = -1640531527;
 
@@ -592,7 +588,7 @@ public class DataBuffer extends Class109 {
 		position = var9 + var7;
 	}
 
-	public int method608() {
+	public int readByteN() {
 		return (0 - data[++position - 1]) & 255;
 	}
 
@@ -616,8 +612,7 @@ public class DataBuffer extends Class109 {
 
 	public int method611() {
 		position += 4;
-		return ((data[position - 4] & 255) << 16) + ((data[position - 3] & 255) << 24)
-				+ ((data[position - 1] & 255) << 8) + (data[position - 2] & 255);
+		return ((data[position - 4] & 255) << 16) + ((data[position - 3] & 255) << 24) + ((data[position - 1] & 255) << 8) + (data[position - 2] & 255);
 	}
 
 	public byte method612() {
@@ -625,15 +620,14 @@ public class DataBuffer extends Class109 {
 	}
 
 	public long method613() {
-		final long var1 = method568() & 4294967295L;
-		final long var3 = method568() & 4294967295L;
+		final long var1 = readInt() & 4294967295L;
+		final long var3 = readInt() & 4294967295L;
 		return (var1 << 32) + var3;
 	}
 
 	public int method614() {
 		position += 4;
-		return (data[position - 4] & 255) + ((data[position - 3] & 255) << 8)
-				+ ((data[position - 1] & 255) << 24) + ((data[position - 2] & 255) << 16);
+		return (data[position - 4] & 255) + ((data[position - 3] & 255) << 8) + ((data[position - 1] & 255) << 24) + ((data[position - 2] & 255) << 16);
 	}
 
 	public int method615() {
@@ -735,17 +729,14 @@ public class DataBuffer extends Class109 {
 			int var23;
 			for (var10 = 1; var10 < 103; ++var10)
 				for (var9 = 1; var9 < 103; ++var9) {
-					var11 = Class27.anIntArrayArrayArray251[var2][var9 + 1][var10]
-							- Class27.anIntArrayArrayArray251[var2][var9 - 1][var10];
-					var19 = Class27.anIntArrayArrayArray251[var2][var9][var10 + 1]
-							- Class27.anIntArrayArrayArray251[var2][var9][var10 - 1];
+					var11 = Class27.anIntArrayArrayArray251[var2][var9 + 1][var10] - Class27.anIntArrayArrayArray251[var2][var9 - 1][var10];
+					var19 = Class27.anIntArrayArrayArray251[var2][var9][var10 + 1] - Class27.anIntArrayArrayArray251[var2][var9][var10 - 1];
 					var20 = (int) Math.sqrt((var19 * var19) + 65536 + (var11 * var11));
 					var21 = (var11 << 8) / var20;
 					var12 = 65536 / var20;
 					var22 = (var19 << 8) / var20;
 					var23 = 96 + (((-50 * var22) + (var21 * -50) + (var12 * -10)) / var5);
-					var4 = (var7[var9][var10] >> 1) + (var7[var9][1 + var10] >> 3) + (var7[var9 + 1][var10] >> 3)
-							+ (var7[var9 - 1][var10] >> 2) + (var7[var9][var10 - 1] >> 2);
+					var4 = (var7[var9][var10] >> 1) + (var7[var9][1 + var10] >> 3) + (var7[var9 + 1][var10] >> 3) + (var7[var9 - 1][var10] >> 2) + (var7[var9][var10 - 1] >> 2);
 					Class112.anIntArrayArray808[var9][var10] = var23 - var4;
 				}
 
@@ -870,8 +861,7 @@ public class DataBuffer extends Class109 {
 
 									if (var43 > 0) {
 										var25 = var43 - 1;
-										var26 = (Class109_Sub21_Sub3) Class109_Sub21_Sub3.aClass120_1308
-												.method438(var25);
+										var26 = (Class109_Sub21_Sub3) Class109_Sub21_Sub3.aClass120_1308.method438(var25);
 										Class109_Sub21_Sub3 var47;
 										if (null != var26)
 											var47 = var26;
@@ -896,21 +886,15 @@ public class DataBuffer extends Class109 {
 
 								var38 = 0;
 								if (var42 != -1)
-									var38 = Class109_Sub21_Sub14_Sub3.anIntArray1832[Class109_Sub21_Sub15_Sub1
-											.method889(var42, 96)];
+									var38 = Class109_Sub21_Sub14_Sub3.anIntArray1832[Class109_Sub21_Sub15_Sub1.method889(var42, 96)];
 
 								if (var43 == 0)
-									var0.method216(var2, var10, var12, 0, 0, -1, var30, var31, var32, var33,
-											Class109_Sub21_Sub15_Sub1.method889(var34, var13),
-											Class109_Sub21_Sub15_Sub1.method889(var34, var35),
-											Class109_Sub21_Sub15_Sub1.method889(var34, var36),
-											Class109_Sub21_Sub15_Sub1.method889(var34, var37), 0, 0, 0, 0, var38, 0);
+									var0.method216(var2, var10, var12, 0, 0, -1, var30, var31, var32, var33, Class109_Sub21_Sub15_Sub1.method889(var34, var13), Class109_Sub21_Sub15_Sub1.method889(var34, var35), Class109_Sub21_Sub15_Sub1.method889(var34, var36), Class109_Sub21_Sub15_Sub1.method889(var34, var37), 0, 0, 0, 0, var38, 0);
 								else {
 									var46 = Class55.aByteArrayArrayArray541[var2][var10][var12] + 1;
 									final byte var52 = Class109_Sub7.aByteArrayArrayArray970[var2][var10][var12];
 									final int var48 = var43 - 1;
-									Class109_Sub21_Sub3 var28 = (Class109_Sub21_Sub3) Class109_Sub21_Sub3.aClass120_1308
-											.method438(var48);
+									Class109_Sub21_Sub3 var28 = (Class109_Sub21_Sub3) Class109_Sub21_Sub3.aClass120_1308.method438(var48);
 									if (var28 != null)
 										var26 = var28;
 									else {
@@ -950,8 +934,7 @@ public class DataBuffer extends Class109 {
 
 									var27 = 0;
 									if (var18 != -2)
-										var27 = Class109_Sub21_Sub14_Sub3.anIntArray1832[Class109_Sub21_Sub8
-												.method714(var18, 96)];
+										var27 = Class109_Sub21_Sub14_Sub3.anIntArray1832[Class109_Sub21_Sub8.method714(var18, 96)];
 
 									if (var26.anInt1318 != -1) {
 										var41 = (Class27.anInt254 + var26.anInt1316) & 255;
@@ -962,19 +945,10 @@ public class DataBuffer extends Class109 {
 											var44 = 255;
 
 										var18 = Class24.method111(var41, var26.anInt1317, var44);
-										var27 = Class109_Sub21_Sub14_Sub3.anIntArray1832[Class109_Sub21_Sub8
-												.method714(var18, 96)];
+										var27 = Class109_Sub21_Sub14_Sub3.anIntArray1832[Class109_Sub21_Sub8.method714(var18, 96)];
 									}
 
-									var0.method216(var2, var10, var12, var46, var52, var17, var30, var31, var32, var33,
-											Class109_Sub21_Sub15_Sub1.method889(var34, var13),
-											Class109_Sub21_Sub15_Sub1.method889(var34, var35),
-											Class109_Sub21_Sub15_Sub1.method889(var34, var36),
-											Class109_Sub21_Sub15_Sub1.method889(var34, var37),
-											Class109_Sub21_Sub8.method714(var29, var13),
-											Class109_Sub21_Sub8.method714(var29, var35),
-											Class109_Sub21_Sub8.method714(var29, var36),
-											Class109_Sub21_Sub8.method714(var29, var37), var38, var27);
+									var0.method216(var2, var10, var12, var46, var52, var17, var30, var31, var32, var33, Class109_Sub21_Sub15_Sub1.method889(var34, var13), Class109_Sub21_Sub15_Sub1.method889(var34, var35), Class109_Sub21_Sub15_Sub1.method889(var34, var36), Class109_Sub21_Sub15_Sub1.method889(var34, var37), Class109_Sub21_Sub8.method714(var29, var13), Class109_Sub21_Sub8.method714(var29, var35), Class109_Sub21_Sub8.method714(var29, var36), Class109_Sub21_Sub8.method714(var29, var37), var38, var27);
 								}
 							}
 						}
@@ -1028,12 +1002,10 @@ public class DataBuffer extends Class109 {
 							var5 = var16;
 							var10 = var14;
 
-							for (var9 = var14; (var8 > 0)
-									&& ((Class33.anIntArrayArrayArray322[var14][var15][var8 - 1] & var2) != 0); --var8)
+							for (var9 = var14; (var8 > 0) && ((Class33.anIntArrayArrayArray322[var14][var15][var8 - 1] & var2) != 0); --var8)
 								;
 
-							while ((var5 < 104)
-									&& ((Class33.anIntArrayArrayArray322[var14][var15][1 + var5] & var2) != 0))
+							while ((var5 < 104) && ((Class33.anIntArrayArrayArray322[var14][var15][1 + var5] & var2) != 0))
 								++var5;
 
 							label570: while (var10 > 0) {
@@ -1057,8 +1029,7 @@ public class DataBuffer extends Class109 {
 								var51 = 240;
 								var20 = Class27.anIntArrayArrayArray251[var9][var15][var8] - var51;
 								var21 = Class27.anIntArrayArrayArray251[var10][var15][var8];
-								Class42.method179(var45, 1, 128 * var15, var15 * 128, 128 * var8, 128 + (var5 * 128),
-										var20, var21);
+								Class42.method179(var45, 1, 128 * var15, var15 * 128, 128 * var8, 128 + (var5 * 128), var20, var21);
 
 								for (var12 = var10; var12 <= var9; ++var12)
 									for (var22 = var8; var22 <= var5; ++var22)
@@ -1071,12 +1042,10 @@ public class DataBuffer extends Class109 {
 							var5 = var15;
 							var10 = var14;
 
-							for (var9 = var14; (var8 > 0)
-									&& ((Class33.anIntArrayArrayArray322[var14][var8 - 1][var16] & var3) != 0); --var8)
+							for (var9 = var14; (var8 > 0) && ((Class33.anIntArrayArrayArray322[var14][var8 - 1][var16] & var3) != 0); --var8)
 								;
 
-							while ((var5 < 104)
-									&& ((Class33.anIntArrayArrayArray322[var14][1 + var5][var16] & var3) != 0))
+							while ((var5 < 104) && ((Class33.anIntArrayArrayArray322[var14][1 + var5][var16] & var3) != 0))
 								++var5;
 
 							label623: while (var10 > 0) {
@@ -1100,8 +1069,7 @@ public class DataBuffer extends Class109 {
 								var51 = 240;
 								var20 = Class27.anIntArrayArrayArray251[var9][var8][var16] - var51;
 								var21 = Class27.anIntArrayArrayArray251[var10][var8][var16];
-								Class42.method179(var45, 2, 128 * var8, 128 + (128 * var5), 128 * var16, var16 * 128,
-										var20, var21);
+								Class42.method179(var45, 2, 128 * var8, 128 + (128 * var5), 128 * var16, var16 * 128, var20, var21);
 
 								for (var12 = var10; var12 <= var9; ++var12)
 									for (var22 = var8; var22 <= var5; ++var22)
@@ -1114,12 +1082,10 @@ public class DataBuffer extends Class109 {
 							var5 = var15;
 							var10 = var16;
 
-							for (var9 = var16; (var10 > 0) && ((Class33.anIntArrayArrayArray322[var14][var15][var10 - 1]
-									& var6) != 0); --var10)
+							for (var9 = var16; (var10 > 0) && ((Class33.anIntArrayArrayArray322[var14][var15][var10 - 1] & var6) != 0); --var10)
 								;
 
-							while ((var9 < 104)
-									&& ((Class33.anIntArrayArrayArray322[var14][var15][var9 + 1] & var6) != 0))
+							while ((var9 < 104) && ((Class33.anIntArrayArrayArray322[var14][var15][var9 + 1] & var6) != 0))
 								++var9;
 
 							label676: while (var8 > 0) {
@@ -1140,8 +1106,7 @@ public class DataBuffer extends Class109 {
 
 							if ((((var5 - var8) + 1) * (1 + (var9 - var10))) >= 4) {
 								var11 = Class27.anIntArrayArrayArray251[var14][var8][var10];
-								Class42.method179(var45, 4, var8 * 128, (var5 * 128) + 128, var10 * 128,
-										(128 * var9) + 128, var11, var11);
+								Class42.method179(var45, 4, var8 * 128, (var5 * 128) + 128, var10 * 128, (128 * var9) + 128, var11, var11);
 
 								for (var19 = var8; var19 <= var5; ++var19)
 									for (var20 = var10; var20 <= var9; ++var20)
@@ -1155,8 +1120,7 @@ public class DataBuffer extends Class109 {
 
 	static long method619() {
 		try {
-			final URL var0 = new URL(
-					Class109_Sub21_Sub15_Sub1.method890("services", false) + "m=accountappeal/login.ws");
+			final URL var0 = new URL(Class109_Sub21_Sub15_Sub1.method890("services", false) + "m=accountappeal/login.ws");
 			final URLConnection var1 = var0.openConnection();
 			var1.setRequestProperty("connection", "close");
 			var1.setDoInput(true);

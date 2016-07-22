@@ -111,9 +111,9 @@ public abstract class Class8 {
 							if (Class88.aClass109_Sub21_Sub18_671 == null) {
 								Class102.aClass109_Sub14_756.position = 0;
 								var9 = Class102.aClass109_Sub14_756.method564();
-								var10 = Class102.aClass109_Sub14_756.method566();
+								var10 = Class102.aClass109_Sub14_756.readShort();
 								final int var11 = Class102.aClass109_Sub14_756.method564();
-								var12 = Class102.aClass109_Sub14_756.method568();
+								var12 = Class102.aClass109_Sub14_756.readInt();
 								final long var13 = var10 + (var9 << 16);
 								Class109_Sub21_Sub18 var15 = (Class109_Sub21_Sub18) Class102.aClass116_748
 										.method429(var13);
@@ -167,8 +167,8 @@ public abstract class Class8 {
 										final Class104_Sub1 var17 = Class102.aClass104_Sub1Array749[var10];
 										if (var17 != null) {
 											Class102.aClass109_Sub14_763.position = (8 * var10) + 5;
-											var12 = Class102.aClass109_Sub14_763.method568();
-											final int var18 = Class102.aClass109_Sub14_763.method568();
+											var12 = Class102.aClass109_Sub14_763.readInt();
+											final int var18 = Class102.aClass109_Sub14_763.readInt();
 											var17.method641(var12, var18);
 										}
 									}

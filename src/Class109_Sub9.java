@@ -260,7 +260,7 @@ public class Class109_Sub9 extends Class109 {
 							final Class104_Sub1 var19 = Class109_Sub21_Sub15_Sub6.aClass104_Sub1_1847;
 							Class109_Sub21_Sub3.aClass104_1312 = var19;
 							Class109_Sub21_Sub13.method764(Class109_Sub21_Sub15_Sub6.aClass104_Sub1_1847, -2031953831);
-							Class91.method354(Class109_Sub21_Sub15_Sub6.aClass104_Sub1_1847,
+							PacketDecoder1.method354(Class109_Sub21_Sub15_Sub6.aClass104_Sub1_1847,
 									Class109_Sub16.aClass104_Sub1_1097);
 							Class4.method36(Class109_Sub21_Sub15_Sub6.aClass104_Sub1_1847,
 									Class109_Sub16.aClass104_Sub1_1097, client.aBool2065);
@@ -396,8 +396,8 @@ public class Class109_Sub9 extends Class109 {
 						else
 							++var1;
 
-						if (null == Class91.aClass109_Sub21_Sub14_Sub2Array691)
-							Class91.aClass109_Sub21_Sub14_Sub2Array691 = Class55.method265(Class28.aClass104_Sub1_265,
+						if (null == PacketDecoder1.aClass109_Sub21_Sub14_Sub2Array691)
+							PacketDecoder1.aClass109_Sub21_Sub14_Sub2Array691 = Class55.method265(Class28.aClass104_Sub1_265,
 									"mapmarker", "");
 						else
 							++var1;

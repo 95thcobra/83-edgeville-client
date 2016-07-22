@@ -279,7 +279,7 @@ public class Class47 {
 							var8 = (var16.anInt1653 / 32)
 									- (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anInt1653 / 32);
 							Applet_Sub1.method1056(var1, var2, var7, var8,
-									Class91.aClass109_Sub21_Sub14_Sub2Array691[1], var6);
+									PacketDecoder1.aClass109_Sub21_Sub14_Sub2Array691[1], var6);
 						}
 					}
 
@@ -288,7 +288,7 @@ public class Class47 {
 								- (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anInt1710 / 32);
 						var7 = (2 + ((client.anInt2223 * 4) - (Class113.anInt822 * 4)))
 								- (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anInt1653 / 32);
-						Applet_Sub1.method1056(var1, var2, var14, var7, Class91.aClass109_Sub21_Sub14_Sub2Array691[1],
+						Applet_Sub1.method1056(var1, var2, var14, var7, PacketDecoder1.aClass109_Sub21_Sub14_Sub2Array691[1],
 								var6);
 					}
 
@@ -301,7 +301,7 @@ public class Class47 {
 							var8 = (var21.anInt1653 / 32)
 									- (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anInt1653 / 32);
 							Applet_Sub1.method1056(var1, var2, var7, var8,
-									Class91.aClass109_Sub21_Sub14_Sub2Array691[1], var6);
+									PacketDecoder1.aClass109_Sub21_Sub14_Sub2Array691[1], var6);
 						}
 					}
 				}
@@ -311,7 +311,7 @@ public class Class47 {
 							- (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anInt1710 / 32);
 					var7 = (2 + (client.anInt2205 * 4))
 							- (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anInt1653 / 32);
-					Class109_Sub23.method659(var1, var2, var14, var7, Class91.aClass109_Sub21_Sub14_Sub2Array691[0],
+					Class109_Sub23.method659(var1, var2, var14, var7, PacketDecoder1.aClass109_Sub21_Sub14_Sub2Array691[0],
 							var6);
 				}
 

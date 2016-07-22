@@ -17,8 +17,8 @@ public class Class15 {
 		anIntArray135 = new int[anInt137];
 
 		for (int var2 = 0; var2 < anInt137; ++var2) {
-			anIntArray141[var2] = var1.method566();
-			anIntArray135[var2] = var1.method566();
+			anIntArray141[var2] = var1.readShort();
+			anIntArray135[var2] = var1.readShort();
 		}
 
 	}
@@ -49,8 +49,8 @@ public class Class15 {
 
 	final void method77(final DataBuffer var1) {
 		anInt132 = var1.method564();
-		anInt133 = var1.method568();
-		anInt136 = var1.method568();
+		anInt133 = var1.readInt();
+		anInt136 = var1.readInt();
 		method74(var1);
 	}
 

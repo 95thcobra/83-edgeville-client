@@ -810,12 +810,12 @@ public abstract class Class109_Sub21_Sub15_Sub3 extends Class109_Sub21_Sub15 {
 			Class5.aClass109_Sub21_Sub14_Sub1Array53[Class50.aClass21_513.aBool195 ? 1 : 0]
 					.method905((Class5.anInt48 + 765) - 40, 463);
 			if ((client.anInt2180 > 5) && (client.anInt2051 == 0))
-				if (null != Class91.aClass109_Sub21_Sub14_Sub1_690) {
+				if (null != PacketDecoder1.aClass109_Sub21_Sub14_Sub1_690) {
 					var32 = Class5.anInt48 + 5;
 					var33 = 463;
 					final byte var39 = 100;
 					var36 = 35;
-					Class91.aClass109_Sub21_Sub14_Sub1_690.method905(var32, var33);
+					PacketDecoder1.aClass109_Sub21_Sub14_Sub1_690.method905(var32, var33);
 					var0.method1016("World" + " " + client.anInt1970, var32 + (var39 / 2), (var33 + (var36 / 2)) - 2,
 							16777215, 0);
 					if (null != Class109_Sub21_Sub19.aClass44_1635)
@@ -823,7 +823,7 @@ public abstract class Class109_Sub21_Sub15_Sub3 extends Class109_Sub21_Sub15 {
 					else
 						var1.method1016("Click to switch", var32 + (var39 / 2), 12 + (var36 / 2) + var33, 16777215, 0);
 				} else
-					Class91.aClass109_Sub21_Sub14_Sub1_690 = Class105.method410(Class28.aClass104_Sub1_265, "sl_button",
+					PacketDecoder1.aClass109_Sub21_Sub14_Sub1_690 = Class105.method410(Class28.aClass104_Sub1_265, "sl_button",
 							"");
 
 			try {

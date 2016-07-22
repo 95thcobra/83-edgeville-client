@@ -33,21 +33,21 @@ public class Class109_Sub21_Sub7 extends Class109_Sub21 {
 		int var3;
 		int var4;
 		if (var2 == 1) {
-			var4 = var1.method566();
+			var4 = var1.readShort();
 			anIntArray1396 = new int[var4];
 
 			for (var3 = 0; var3 < var4; ++var3)
-				anIntArray1396[var3] = var1.method566();
+				anIntArray1396[var3] = var1.readShort();
 
 			anIntArray1401 = new int[var4];
 
 			for (var3 = 0; var3 < var4; ++var3)
-				anIntArray1401[var3] = var1.method566();
+				anIntArray1401[var3] = var1.readShort();
 
 			for (var3 = 0; var3 < var4; ++var3)
-				anIntArray1401[var3] += var1.method566() << 16;
+				anIntArray1401[var3] += var1.readShort() << 16;
 		} else if (var2 == 2)
-			anInt1395 = var1.method566();
+			anInt1395 = var1.readShort();
 		else if (var2 == 3) {
 			var4 = var1.method564();
 			anIntArray1399 = new int[1 + var4];
@@ -61,9 +61,9 @@ public class Class109_Sub21_Sub7 extends Class109_Sub21 {
 		else if (var2 == 5)
 			anInt1390 = var1.method564();
 		else if (var2 == 6)
-			anInt1402 = var1.method566();
+			anInt1402 = var1.readShort();
 		else if (var2 == 7)
-			anInt1403 = var1.method566();
+			anInt1403 = var1.readShort();
 		else if (var2 == 8)
 			anInt1405 = var1.method564();
 		else if (var2 == 9)
@@ -77,10 +77,10 @@ public class Class109_Sub21_Sub7 extends Class109_Sub21 {
 			anIntArray1407 = new int[var4];
 
 			for (var3 = 0; var3 < var4; ++var3)
-				anIntArray1407[var3] = var1.method566();
+				anIntArray1407[var3] = var1.readShort();
 
 			for (var3 = 0; var3 < var4; ++var3)
-				anIntArray1407[var3] += var1.method566() << 16;
+				anIntArray1407[var3] += var1.readShort() << 16;
 		} else if (var2 == 13) {
 			var4 = var1.method564();
 			anIntArray1397 = new int[var4];

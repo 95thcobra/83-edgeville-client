@@ -89,7 +89,7 @@ public class Class105 implements Runnable {
 	public static void method411(final DataBuffer var0) {
 		final Class109_Sub23 var1 = new Class109_Sub23();
 		var1.anInt1283 = var0.method564();
-		var1.anInt1288 = var0.method568();
+		var1.anInt1288 = var0.readInt();
 		var1.anIntArray1282 = new int[var1.anInt1283];
 		var1.anIntArray1285 = new int[var1.anInt1283];
 		var1.aFieldArray1286 = new Field[var1.anInt1283];
@@ -118,7 +118,7 @@ public class Class105 implements Runnable {
 						int var12;
 						if (var3 == 3)
 							for (int var11 = 0; var11 < var6; ++var11) {
-								var12 = var0.method568();
+								var12 = var0.readInt();
 								var10[var11] = new byte[var12];
 								var0.method561(var10[var11], 0, var12);
 							}
@@ -161,7 +161,7 @@ public class Class105 implements Runnable {
 					var5 = var0.method602();
 					var6 = 0;
 					if (var3 == 1)
-						var6 = var0.method568();
+						var6 = var0.readInt();
 
 					var1.anIntArray1282[var2] = var3;
 					var1.anIntArray1289[var2] = var6;

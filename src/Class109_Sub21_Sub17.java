@@ -44,8 +44,8 @@ public class Class109_Sub21_Sub17 extends Class109_Sub21 {
 	}
 
 	static final void method839() {
-		client.aClass109_Sub14_Sub1_2211.method843();
-		final int var0 = client.aClass109_Sub14_Sub1_2211.method844(8);
+		client.gameBuffer.method843();
+		final int var0 = client.gameBuffer.method844(8);
 		int var1;
 		if (var0 < client.anInt2007)
 			for (var1 = var0; var1 < client.anInt2007; ++var1)
@@ -59,12 +59,12 @@ public class Class109_Sub21_Sub17 extends Class109_Sub21 {
 			for (var1 = 0; var1 < var0; ++var1) {
 				final int var2 = client.anIntArray2175[var1];
 				final Class109_Sub21_Sub15_Sub3_Sub1 var5 = client.aClass109_Sub21_Sub15_Sub3_Sub1Array2006[var2];
-				final int var6 = client.aClass109_Sub14_Sub1_2211.method844(1);
+				final int var6 = client.gameBuffer.method844(1);
 				if (var6 == 0) {
 					client.anIntArray2175[++client.anInt2007 - 1] = var2;
 					var5.anInt1700 = client.anInt1979;
 				} else {
-					final int var4 = client.aClass109_Sub14_Sub1_2211.method844(2);
+					final int var4 = client.gameBuffer.method844(2);
 					if (var4 == 0) {
 						client.anIntArray2175[++client.anInt2007 - 1] = var2;
 						var5.anInt1700 = client.anInt1979;
@@ -75,19 +75,19 @@ public class Class109_Sub21_Sub17 extends Class109_Sub21 {
 						if (var4 == 1) {
 							client.anIntArray2175[++client.anInt2007 - 1] = var2;
 							var5.anInt1700 = client.anInt1979;
-							var7 = client.aClass109_Sub14_Sub1_2211.method844(3);
+							var7 = client.gameBuffer.method844(3);
 							var5.method896(var7, false);
-							var3 = client.aClass109_Sub14_Sub1_2211.method844(1);
+							var3 = client.gameBuffer.method844(1);
 							if (var3 == 1)
 								client.anIntArray2186[++client.anInt2089 - 1] = var2;
 						} else if (var4 == 2) {
 							client.anIntArray2175[++client.anInt2007 - 1] = var2;
 							var5.anInt1700 = client.anInt1979;
-							var7 = client.aClass109_Sub14_Sub1_2211.method844(3);
+							var7 = client.gameBuffer.method844(3);
 							var5.method896(var7, true);
-							var3 = client.aClass109_Sub14_Sub1_2211.method844(3);
+							var3 = client.gameBuffer.method844(3);
 							var5.method896(var3, true);
-							final int var8 = client.aClass109_Sub14_Sub1_2211.method844(1);
+							final int var8 = client.gameBuffer.method844(1);
 							if (var8 == 1)
 								client.anIntArray2186[++client.anInt2089 - 1] = var2;
 						} else if (var4 == 3)

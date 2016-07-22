@@ -40,7 +40,7 @@ public final class Class109_Sub21_Sub15_Sub3_Sub2 extends Class109_Sub21_Sub15_S
 				var5 = var1.method564();
 				var2[var3] = (var4 << 8) + var5;
 				if ((var3 == 0) && (var2[0] == '\uffff')) {
-					var6 = var1.method566();
+					var6 = var1.readShort();
 					break;
 				}
 
@@ -62,32 +62,32 @@ public final class Class109_Sub21_Sub15_Sub3_Sub2 extends Class109_Sub21_Sub15_S
 			var9[var4] = var5;
 		}
 
-		anInt1657 = var1.method566();
+		anInt1657 = var1.readShort();
 		if (anInt1657 == '\uffff')
 			anInt1657 = -1;
 
-		anInt1658 = var1.method566();
+		anInt1658 = var1.readShort();
 		if (anInt1658 == '\uffff')
 			anInt1658 = -1;
 
 		anInt1659 = anInt1658;
-		anInt1660 = var1.method566();
+		anInt1660 = var1.readShort();
 		if (anInt1660 == '\uffff')
 			anInt1660 = -1;
 
-		anInt1661 = var1.method566();
+		anInt1661 = var1.readShort();
 		if (anInt1661 == '\uffff')
 			anInt1661 = -1;
 
-		anInt1678 = var1.method566();
+		anInt1678 = var1.readShort();
 		if (anInt1678 == '\uffff')
 			anInt1678 = -1;
 
-		anInt1696 = var1.method566();
+		anInt1696 = var1.readShort();
 		if (anInt1696 == '\uffff')
 			anInt1696 = -1;
 
-		anInt1679 = var1.method566();
+		anInt1679 = var1.readShort();
 		if (anInt1679 == '\uffff')
 			anInt1679 = -1;
 
@@ -96,7 +96,7 @@ public final class Class109_Sub21_Sub15_Sub3_Sub2 extends Class109_Sub21_Sub15_S
 			RuntimeException_Sub1.aString1897 = aString1931;
 
 		anInt1932 = var1.method564();
-		anInt1933 = var1.method566();
+		anInt1933 = var1.readShort();
 		aBool1928 = var1.method564() == 1;
 		if ((client.anInt1972 == 0) && (client.anInt2135 >= 2))
 			aBool1928 = false;
@@ -116,8 +116,8 @@ public final class Class109_Sub21_Sub15_Sub3_Sub2 extends Class109_Sub21_Sub15_S
 		client.aLong2011 = -1L;
 		Class1.method15();
 		client.secureBuffer.position = 0;
-		client.aClass109_Sub14_Sub1_2211.position = 0;
-		client.anInt2013 = -1;
+		client.gameBuffer.position = 0;
+		client.incomingMessage = -1;
 		client.anInt2153 = 1;
 		client.anInt2018 = -1;
 		client.anInt2019 = -1;

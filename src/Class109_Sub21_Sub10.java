@@ -82,7 +82,7 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 					anIntArray1432 = new int[var3];
 
 					for (var4 = 0; var4 < var3; ++var4) {
-						anIntArray1432[var4] = var1.method566();
+						anIntArray1432[var4] = var1.readShort();
 						anIntArray1433[var4] = var1.method564();
 					}
 				}
@@ -98,7 +98,7 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 					anIntArray1432 = new int[var3];
 
 					for (var4 = 0; var4 < var3; ++var4)
-						anIntArray1432[var4] = var1.method566();
+						anIntArray1432[var4] = var1.readShort();
 				}
 		} else if (var2 == 14)
 			anInt1440 = var1.method564();
@@ -118,7 +118,7 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 		else if (var2 == 23)
 			aBool1445 = true;
 		else if (var2 == 24) {
-			anInt1446 = var1.method566();
+			anInt1446 = var1.readShort();
 			if (anInt1446 == '\uffff')
 				anInt1446 = -1;
 		} else if (var2 == 27)
@@ -139,8 +139,8 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 			aShortArray1436 = new short[var3];
 
 			for (var4 = 0; var4 < var3; ++var4) {
-				aShortArray1430[var4] = (short) var1.method566();
-				aShortArray1436[var4] = (short) var1.method566();
+				aShortArray1430[var4] = (short) var1.readShort();
+				aShortArray1436[var4] = (short) var1.readShort();
 			}
 		} else if (var2 == 41) {
 			var3 = var1.method564();
@@ -148,23 +148,23 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 			aShortArray1442 = new short[var3];
 
 			for (var4 = 0; var4 < var3; ++var4) {
-				aShortArray1468[var4] = (short) var1.method566();
-				aShortArray1442[var4] = (short) var1.method566();
+				aShortArray1468[var4] = (short) var1.readShort();
+				aShortArray1442[var4] = (short) var1.readShort();
 			}
 		} else if (var2 == 60)
-			anInt1451 = var1.method566();
+			anInt1451 = var1.readShort();
 		else if (var2 == 62)
 			aBool1453 = true;
 		else if (var2 == 64)
 			aBool1443 = false;
 		else if (var2 == 65)
-			anInt1455 = var1.method566();
+			anInt1455 = var1.readShort();
 		else if (var2 == 66)
-			anInt1467 = var1.method566();
+			anInt1467 = var1.readShort();
 		else if (var2 == 67)
-			anInt1457 = var1.method566();
+			anInt1457 = var1.readShort();
 		else if (var2 == 68)
-			anInt1452 = var1.method566();
+			anInt1452 = var1.readShort();
 		else if (var2 == 69)
 			var1.method564();
 		else if (var2 == 70)
@@ -180,11 +180,11 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 		else if (var2 == 75)
 			anInt1463 = var1.method564();
 		else if (var2 == 77) {
-			anInt1465 = var1.method566();
+			anInt1465 = var1.readShort();
 			if (anInt1465 == '\uffff')
 				anInt1465 = -1;
 
-			anInt1466 = var1.method566();
+			anInt1466 = var1.readShort();
 			if (anInt1466 == '\uffff')
 				anInt1466 = -1;
 
@@ -192,22 +192,22 @@ public class Class109_Sub21_Sub10 extends Class109_Sub21 {
 			anIntArray1464 = new int[1 + var3];
 
 			for (var4 = 0; var4 <= var3; ++var4) {
-				anIntArray1464[var4] = var1.method566();
+				anIntArray1464[var4] = var1.readShort();
 				if (anIntArray1464[var4] == '\uffff')
 					anIntArray1464[var4] = -1;
 			}
 		} else if (var2 == 78) {
-			anInt1447 = var1.method566();
+			anInt1447 = var1.readShort();
 			anInt1449 = var1.method564();
 		} else if (var2 == 79) {
-			anInt1469 = var1.method566();
-			anInt1470 = var1.method566();
+			anInt1469 = var1.readShort();
+			anInt1470 = var1.readShort();
 			anInt1449 = var1.method564();
 			var3 = var1.method564();
 			anIntArray1471 = new int[var3];
 
 			for (var4 = 0; var4 < var3; ++var4)
-				anIntArray1471[var4] = var1.method566();
+				anIntArray1471[var4] = var1.readShort();
 		} else if (var2 == 81)
 			anInt1460 = var1.method564() * 256;
 

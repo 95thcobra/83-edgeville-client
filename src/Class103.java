@@ -29,16 +29,16 @@ public class Class103 {
 	void method371(final byte[] var1) {
 		aClass109_Sub14_766.data = var1;
 		aClass109_Sub14_766.position = 10;
-		final int var3 = aClass109_Sub14_766.method566();
-		anInt773 = aClass109_Sub14_766.method566();
+		final int var3 = aClass109_Sub14_766.readShort();
+		anInt773 = aClass109_Sub14_766.readShort();
 		anInt771 = 500000;
 		anIntArray767 = new int[var3];
 
 		int var2;
 		int var5;
 		for (var2 = 0; var2 < var3; aClass109_Sub14_766.position += var5) {
-			final int var4 = aClass109_Sub14_766.method568();
-			var5 = aClass109_Sub14_766.method568();
+			final int var4 = aClass109_Sub14_766.readInt();
+			var5 = aClass109_Sub14_766.readInt();
 			if (var4 == 1297379947) {
 				anIntArray767[var2] = aClass109_Sub14_766.position;
 				++var2;

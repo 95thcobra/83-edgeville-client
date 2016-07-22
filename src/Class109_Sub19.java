@@ -10,7 +10,7 @@ public class Class109_Sub19 extends Class109 {
 	Class109_Sub19(final DataBuffer var1) {
 		var1.position = var1.data.length - 3;
 		final int var4 = var1.method564();
-		final int var5 = var1.method566();
+		final int var5 = var1.readShort();
 		int var2 = 14 + (var4 * 10);
 		var1.position = 0;
 		int var29 = 0;

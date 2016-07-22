@@ -22,7 +22,7 @@ public class Class25 {
 
 	}
 
-	static final Class109_Sub13 method113(final int var0, final int var1, final int var2) {
+	static final Class109_Sub13 openInterface(final int var0, final int var1, final int var2) {
 		final Class109_Sub13 var3 = new Class109_Sub13();
 		var3.anInt1050 = var1;
 		var3.anInt1045 = var2;

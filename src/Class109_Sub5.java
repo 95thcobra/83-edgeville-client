@@ -73,16 +73,16 @@ public class Class109_Sub5 extends Class109 {
 
 	void method514(final byte[] var1) {
 		final DataBuffer var2 = new DataBuffer(var1);
-		anInt942 = var2.method568();
-		anInt930 = var2.method568();
-		anInt931 = var2.method568();
-		anInt937 = var2.method568();
+		anInt942 = var2.readInt();
+		anInt930 = var2.readInt();
+		anInt931 = var2.readInt();
+		anInt937 = var2.readInt();
 		if (anInt937 < 0) {
 			anInt937 = ~anInt937;
 			aBool933 = true;
 		}
 
-		final int var6 = var2.method568();
+		final int var6 = var2.readInt();
 		aByteArrayArray949 = new byte[var6][];
 
 		for (int var7 = 0; var7 < var6; ++var7) {

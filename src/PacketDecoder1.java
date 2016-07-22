@@ -1,4 +1,4 @@
-public class Class91 {
+public class PacketDecoder1 {
 	static Class109_Sub21_Sub14_Sub1 aClass109_Sub21_Sub14_Sub1_690;
 	static Class109_Sub21_Sub14_Sub2[] aClass109_Sub21_Sub14_Sub2Array691;
 	public static boolean[] aBoolArray688 = new boolean[] { true, true, true, true, true, true, true, true, true, true,

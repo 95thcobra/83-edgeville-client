@@ -8,11 +8,11 @@ public class Class134 {
 
 	public Class134(final DataBuffer var1, final boolean var2) {
 		aByte881 = var1.method612();
-		anInt885 = var1.method566();
-		anInt882 = var1.method568();
-		anInt880 = var1.method568();
-		anInt884 = var1.method568();
-		anInt883 = var1.method568();
+		anInt885 = var1.readShort();
+		anInt882 = var1.readInt();
+		anInt880 = var1.readInt();
+		anInt884 = var1.readInt();
+		anInt883 = var1.readInt();
 	}
 
 	void method478(final int var1) {

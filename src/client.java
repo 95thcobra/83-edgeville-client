@@ -16,7 +16,7 @@ public final class client extends Applet_Sub1 {
 	private static final long serialVersionUID = -7605435364324929618L;
 	static Class109_Sub21_Sub14_Sub4_Sub1 aClass109_Sub21_Sub14_Sub4_Sub1_2021;
 	static Class109_Sub21_Sub14_Sub2[] aClass109_Sub21_Sub14_Sub2Array2098;
-	static int anInt2013;
+	static int incomingMessage;
 	static int anInt2012;
 	static int anInt2014;
 	static int anInt2019;
@@ -133,13 +133,13 @@ public final class client extends Applet_Sub1 {
 	static int[] anIntArray2175;
 	static Class109_Sub14_Sub1 secureBuffer;
 	static Class109_Sub14_Sub1 loginBuffer;
-	static Class109_Sub14_Sub1 aClass109_Sub14_Sub1_2211;
+	static Class109_Sub14_Sub1 gameBuffer;
 	static int anInt2022;
 	static int anInt2023;
 	static int anInt2025;
 	static int anInt2027;
 	static Class138[] aClass138Array2159;
-	static boolean aBool2141;
+	static boolean dynamicRegion;
 	static int[][][] anIntArrayArrayArray1996;
 	static int[] anIntArray2030;
 	static int anInt1977;
@@ -305,18 +305,18 @@ public final class client extends Applet_Sub1 {
       if(null == Class48.aClass82_506)
 		return false;
 	else {
-         int var2;
+         int target;
          String var13;
          try {
             int var0 = Class48.aClass82_506.method340();
             if(var0 == 0)
 				return false;
 
-            if(anInt2013 == -1) {
-               Class48.aClass82_506.method341(aClass109_Sub14_Sub1_2211.data, 0, 1);
-               aClass109_Sub14_Sub1_2211.position = 0;
-               anInt2013 = aClass109_Sub14_Sub1_2211.method842();
-               anInt2012 = Class107.anIntArray801[anInt2013];
+            if(incomingMessage == -1) {
+               Class48.aClass82_506.method341(gameBuffer.data, 0, 1);
+               gameBuffer.position = 0;
+               incomingMessage = gameBuffer.method842();
+               anInt2012 = Class107.anIntArray801[incomingMessage];
                --var0;
             }
 
@@ -324,8 +324,8 @@ public final class client extends Applet_Sub1 {
                if(var0 <= 0)
 				return false;
 
-               Class48.aClass82_506.method341(aClass109_Sub14_Sub1_2211.data, 0, 1);
-               anInt2012 = aClass109_Sub14_Sub1_2211.data[0] & 255;
+               Class48.aClass82_506.method341(gameBuffer.data, 0, 1);
+               anInt2012 = gameBuffer.data[0] & 255;
                --var0;
             }
 
@@ -333,163 +333,166 @@ public final class client extends Applet_Sub1 {
                if(var0 <= 1)
 				return false;
 
-               Class48.aClass82_506.method341(aClass109_Sub14_Sub1_2211.data, 0, 2);
-               aClass109_Sub14_Sub1_2211.position = 0;
-               anInt2012 = aClass109_Sub14_Sub1_2211.method566();
+               Class48.aClass82_506.method341(gameBuffer.data, 0, 2);
+               gameBuffer.position = 0;
+               anInt2012 = gameBuffer.readShort();
                var0 -= 2;
             }
 
             if(var0 < anInt2012)
 				return false;
 
-            aClass109_Sub14_Sub1_2211.position = 0;
-            Class48.aClass82_506.method341(aClass109_Sub14_Sub1_2211.data, 0, anInt2012);
+            gameBuffer.position = 0;
+            Class48.aClass82_506.method341(gameBuffer.data, 0, anInt2012);
             anInt2014 = 0;
             anInt2019 = anInt2018;
             anInt2018 = anInt2153 * -1;
-            anInt2153 = anInt2013 * -1;
-            if(anInt2013 == 244) {
+            anInt2153 = incomingMessage * -1;
+            if(incomingMessage == 244) {
                anInt2238 = 1;
                anInt2161 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            int var1;
-            int var3;
+            int id;
+            int walkable;
             Class109_Sub13 var46;
-            if(anInt2013 == 66) {
-               var1 = aClass109_Sub14_Sub1_2211.method566();
-               var2 = aClass109_Sub14_Sub1_2211.method599();
-               var3 = aClass109_Sub14_Sub1_2211.method585();
-               var46 = (Class109_Sub13)aClass116_2129.method429(var2);
+            
+            // Open interface
+            if(incomingMessage == 66) {
+               id = gameBuffer.readShort();
+               target = gameBuffer.readIntV1();
+               walkable = gameBuffer.readByteS();
+               
+               var46 = (Class109_Sub13)aClass116_2129.method429(target);
                if(var46 != null)
-				method1064(var46, var1 != var46.anInt1050);
+				method1064(var46, id != var46.anInt1050);
 
-               Class25.method113(var2, var1, var3);
-               anInt2013 = -1;
+               Class25.openInterface(target, id, walkable);
+               incomingMessage = -1;
                return true;
             }
 
             int var5;
             int var6;
             long var7;
-            if(anInt2013 == 196) {
-               var1 = aClass109_Sub14_Sub1_2211.method592();
-               if(var1 == '\uffff')
-				var1 = -1;
+            if(incomingMessage == 196) {
+               id = gameBuffer.readLEShortA();
+               if(id == '\uffff')
+				id = -1;
 
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               if(var2 == '\uffff')
-				var2 = -1;
+               target = gameBuffer.readShort();
+               if(target == '\uffff')
+				target = -1;
 
-               var3 = aClass109_Sub14_Sub1_2211.method611();
-               var5 = aClass109_Sub14_Sub1_2211.method599();
+               walkable = gameBuffer.method611();
+               var5 = gameBuffer.readIntV1();
 
-               for(var6 = var1; var6 <= var2; ++var6) {
+               for(var6 = id; var6 <= target; ++var6) {
                   var7 = var6 + ((long)var5 << 32);
                   final Class109 var48 = aClass116_1999.method429(var7);
                   if(null != var48)
 					var48.method413();
 
-                  aClass116_1999.method430(new Class109_Sub24(var3), var7);
+                  aClass116_1999.method430(new Class109_Sub24(walkable), var7);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             Class109_Sub20 var10;
-            if(anInt2013 == 192) {
-               var1 = aClass109_Sub14_Sub1_2211.method575();
-               var2 = aClass109_Sub14_Sub1_2211.method568();
-               var10 = Class83.method345(var2);
-               if((var10.anInt1192 != var1) || (var1 == -1)) {
-                  var10.anInt1192 = var1;
+            if(incomingMessage == 192) {
+               id = gameBuffer.method575();
+               target = gameBuffer.readInt();
+               var10 = Class83.method345(target);
+               if((var10.anInt1192 != id) || (id == -1)) {
+                  var10.anInt1192 = id;
                   var10.anInt1267 = 0;
                   var10.anInt1268 = 0;
                   Class71.method315(var10);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 179) {
-               for(var1 = 0; var1 < aClass109_Sub21_Sub15_Sub3_Sub2Array2086.length; ++var1)
-				if(null != aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1])
-					aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1].anInt1683 = -1;
+            if(incomingMessage == 179) {
+               for(id = 0; id < aClass109_Sub21_Sub15_Sub3_Sub2Array2086.length; ++id)
+				if(null != aClass109_Sub21_Sub15_Sub3_Sub2Array2086[id])
+					aClass109_Sub21_Sub15_Sub3_Sub2Array2086[id].anInt1683 = -1;
 
-               for(var1 = 0; var1 < aClass109_Sub21_Sub15_Sub3_Sub1Array2006.length; ++var1)
-				if(null != aClass109_Sub21_Sub15_Sub3_Sub1Array2006[var1])
-					aClass109_Sub21_Sub15_Sub3_Sub1Array2006[var1].anInt1683 = -1;
+               for(id = 0; id < aClass109_Sub21_Sub15_Sub3_Sub1Array2006.length; ++id)
+				if(null != aClass109_Sub21_Sub15_Sub3_Sub1Array2006[id])
+					aClass109_Sub21_Sub15_Sub3_Sub1Array2006[id].anInt1683 = -1;
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 134) {
-               var1 = aClass109_Sub14_Sub1_2211.method592();
-               var2 = aClass109_Sub14_Sub1_2211.method599();
-               var10 = Class83.method345(var2);
+            if(incomingMessage == 134) {
+               id = gameBuffer.readLEShortA();
+               target = gameBuffer.readIntV1();
+               var10 = Class83.method345(target);
                if((null != var10) && (var10.anInt1229 == 0)) {
-                  if(var1 > (var10.anInt1171 - var10.anInt1163))
-					var1 = var10.anInt1171 - var10.anInt1163;
+                  if(id > (var10.anInt1171 - var10.anInt1163))
+					id = var10.anInt1171 - var10.anInt1163;
 
-                  if(var1 < 0)
-					var1 = 0;
+                  if(id < 0)
+					id = 0;
 
-                  if(var1 != var10.anInt1169) {
-                     var10.anInt1169 = var1;
+                  if(id != var10.anInt1169) {
+                     var10.anInt1169 = id;
                      Class71.method315(var10);
                   }
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             String var11;
-            if(anInt2013 == 131) {
-               var1 = aClass109_Sub14_Sub1_2211.method608();
-               var11 = aClass109_Sub14_Sub1_2211.method602();
-               var3 = aClass109_Sub14_Sub1_2211.method585();
-               if((var3 >= 1) && (var3 <= 8)) {
+            if(incomingMessage == 131) {
+               id = gameBuffer.readByteN();
+               var11 = gameBuffer.method602();
+               walkable = gameBuffer.readByteS();
+               if((walkable >= 1) && (walkable <= 8)) {
                   if(var11.equalsIgnoreCase("null"))
 					var11 = null;
 
-                  aStringArray2151[var3 - 1] = var11;
-                  aBoolArray1990[var3 - 1] = var1 == 0;
+                  aStringArray2151[walkable - 1] = var11;
+                  aBoolArray1990[walkable - 1] = id == 0;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             Class109_Sub20 var56;
-            if(anInt2013 == 55) {
-               var1 = aClass109_Sub14_Sub1_2211.method566();
-               var2 = aClass109_Sub14_Sub1_2211.method568();
-               var3 = aClass109_Sub14_Sub1_2211.method566();
-               var5 = aClass109_Sub14_Sub1_2211.method559();
-               var56 = Class83.method345(var2);
-               if((var56.anInt1273 != var5) || (var1 != var56.anInt1193) || (var3 != var56.anInt1199)) {
+            if(incomingMessage == 55) {
+               id = gameBuffer.readShort();
+               target = gameBuffer.readInt();
+               walkable = gameBuffer.readShort();
+               var5 = gameBuffer.readShortA();
+               var56 = Class83.method345(target);
+               if((var56.anInt1273 != var5) || (id != var56.anInt1193) || (walkable != var56.anInt1199)) {
                   var56.anInt1273 = var5;
-                  var56.anInt1193 = var1;
-                  var56.anInt1199 = var3;
+                  var56.anInt1193 = id;
+                  var56.anInt1199 = walkable;
                   Class71.method315(var56);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 139) {
+            if(incomingMessage == 139) {
                final Class46 var67 = new Class46();
-               var67.aString487 = aClass109_Sub14_Sub1_2211.method602();
-               var67.anInt492 = aClass109_Sub14_Sub1_2211.method566();
-               var2 = aClass109_Sub14_Sub1_2211.method568();
-               var67.anInt480 = var2;
+               var67.aString487 = gameBuffer.method602();
+               var67.anInt492 = gameBuffer.readShort();
+               target = gameBuffer.readInt();
+               var67.anInt480 = target;
                Class82.method343(45);
                Class48.aClass82_506.method338();
                Class48.aClass82_506 = null;
@@ -504,75 +507,75 @@ public final class client extends Applet_Sub1 {
                Class20.anInt188 = anInt1972 == 0?'\uaa4a':'\u9c40' + var67.anInt492;
                Class2.anInt18 = anInt1972 == 0?443:var67.anInt492 + '\uc350';
                Class33.anInt323 = Class20.anInt188;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return false;
             }
 
-            if(anInt2013 == 14) {
+            if(incomingMessage == 14) {
                Class44.method227();
-               var1 = aClass109_Sub14_Sub1_2211.method564();
-               var2 = aClass109_Sub14_Sub1_2211.method584();
-               var3 = aClass109_Sub14_Sub1_2211.method614();
-               anIntArray2107[var2] = var3;
-               anIntArray2105[var2] = var1;
-               anIntArray2106[var2] = 1;
+               id = gameBuffer.method564();
+               target = gameBuffer.method584();
+               walkable = gameBuffer.method614();
+               anIntArray2107[target] = walkable;
+               anIntArray2105[target] = id;
+               anIntArray2106[target] = 1;
 
                for(var5 = 0; var5 < 98; ++var5)
-				if(var3 >= Class91.anIntArray689[var5])
-					anIntArray2106[var2] = 2 + var5;
+				if(walkable >= PacketDecoder1.anIntArray689[var5])
+					anIntArray2106[target] = 2 + var5;
 
-               anIntArray2146[(++anInt2224 - 1) & 31] = var2;
-               anInt2013 = -1;
+               anIntArray2146[(++anInt2224 - 1) & 31] = target;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 147) {
+            if(incomingMessage == 147) {
                aBool2218 = false;
 
-               for(var1 = 0; var1 < 5; ++var1)
-				aBoolArray2200[var1] = false;
+               for(id = 0; id < 5; ++id)
+				aBoolArray2200[id] = false;
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 113) {
+            if(incomingMessage == 113) {
                aBool2218 = true;
-               LoginEncoder.anInt525 = aClass109_Sub14_Sub1_2211.method564();
-               Class75.anInt614 = aClass109_Sub14_Sub1_2211.method564();
-               Canvas_Sub1.anInt1597 = aClass109_Sub14_Sub1_2211.method566();
-               Class109_Sub21_Sub2.anInt1307 = aClass109_Sub14_Sub1_2211.method564();
-               Class17.anInt154 = aClass109_Sub14_Sub1_2211.method564();
+               LoginEncoder.anInt525 = gameBuffer.method564();
+               Class75.anInt614 = gameBuffer.method564();
+               Canvas_Sub1.anInt1597 = gameBuffer.readShort();
+               Class109_Sub21_Sub2.anInt1307 = gameBuffer.method564();
+               Class17.anInt154 = gameBuffer.method564();
                if(Class17.anInt154 >= 100) {
                   Class109_Sub13.anInt1048 = (LoginEncoder.anInt525 * 128) + 64;
                   Class109_Sub21_Sub9.anInt1420 = 64 + (Class75.anInt614 * 128);
                   Class24.anInt222 = Class41.method174(Class109_Sub13.anInt1048, Class109_Sub21_Sub9.anInt1420, Class77.anInt616) - Canvas_Sub1.anInt1597;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             int var14;
-            if(anInt2013 == 194) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               if(var1 < -70000)
-				var2 += '\u8000';
+            if(incomingMessage == 194) {
+               id = gameBuffer.readInt();
+               target = gameBuffer.readShort();
+               if(id < -70000)
+				target += '\u8000';
 
-               if(var1 >= 0)
-				var10 = Class83.method345(var1);
+               if(id >= 0)
+				var10 = Class83.method345(id);
 			else
 				var10 = null;
 
-               for(; aClass109_Sub14_Sub1_2211.position < anInt2012; Class109_Sub10.method536(var2, var5, var6 - 1, var14)) {
-                  var5 = aClass109_Sub14_Sub1_2211.method574();
-                  var6 = aClass109_Sub14_Sub1_2211.method566();
+               for(; gameBuffer.position < anInt2012; Class109_Sub10.method536(target, var5, var6 - 1, var14)) {
+                  var5 = gameBuffer.method574();
+                  var6 = gameBuffer.readShort();
                   var14 = 0;
                   if(var6 != 0) {
-                     var14 = aClass109_Sub14_Sub1_2211.method564();
+                     var14 = gameBuffer.method564();
                      if(var14 == 255)
-						var14 = aClass109_Sub14_Sub1_2211.method568();
+						var14 = gameBuffer.readInt();
                   }
 
                   if((var10 != null) && (var5 >= 0) && (var5 < var10.anIntArray1149.length)) {
@@ -585,60 +588,60 @@ public final class client extends Applet_Sub1 {
 				Class71.method315(var10);
 
                Class44.method227();
-               anIntArray2156[(++anInt2145 - 1) & 31] = var2 & 32767;
-               anInt2013 = -1;
+               anIntArray2156[(++anInt2145 - 1) & 31] = target & 32767;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 20) {
-               for(var1 = 0; var1 < Class122.anInt847; ++var1) {
-                  final Class109_Sub21_Sub2 var64 = Class109_Sub21_Sub7.method711(var1);
+            if(incomingMessage == 20) {
+               for(id = 0; id < Class122.anInt847; ++id) {
+                  final Class109_Sub21_Sub2 var64 = Class109_Sub21_Sub7.method711(id);
                   if(null != var64) {
-                     Class106.anIntArray797[var1] = 0;
-                     Class106.anIntArray798[var1] = 0;
+                     Class106.anIntArray797[id] = 0;
+                     Class106.anIntArray798[id] = 0;
                   }
                }
 
                Class44.method227();
                anInt2041 += 32;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 10) {
-               var1 = aClass109_Sub14_Sub1_2211.method592();
-               var2 = aClass109_Sub14_Sub1_2211.method568();
-               var10 = Class83.method345(var2);
-               if((var10.anInt1188 != 2) || (var10.anInt1189 != var1)) {
+            if(incomingMessage == 10) {
+               id = gameBuffer.readLEShortA();
+               target = gameBuffer.readInt();
+               var10 = Class83.method345(target);
+               if((var10.anInt1188 != 2) || (var10.anInt1189 != id)) {
                   var10.anInt1188 = 2;
-                  var10.anInt1189 = var1;
+                  var10.anInt1189 = id;
                   Class71.method315(var10);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             int var15;
             boolean var45;
             boolean var47;
-            if(anInt2013 == 93) {
-               var13 = aClass109_Sub14_Sub1_2211.method602();
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               final byte var49 = aClass109_Sub14_Sub1_2211.method612();
+            if(incomingMessage == 93) {
+               var13 = gameBuffer.method602();
+               target = gameBuffer.readShort();
+               final byte var49 = gameBuffer.method612();
                var45 = false;
                if(var49 == -128)
 				var45 = true;
 
                if(var45) {
                   if(Class109_Sub21_Sub17.anInt1589 == 0) {
-                     anInt2013 = -1;
+                     incomingMessage = -1;
                      return true;
                   }
 
                   var47 = false;
 
-                  for(var6 = 0; (var6 < Class109_Sub21_Sub17.anInt1589) && (!Class53.aClass109_Sub7Array532[var6].aString969.equals(var13) || (Class53.aClass109_Sub7Array532[var6].anInt967 != var2)); ++var6)
+                  for(var6 = 0; (var6 < Class109_Sub21_Sub17.anInt1589) && (!Class53.aClass109_Sub7Array532[var6].aString969.equals(var13) || (Class53.aClass109_Sub7Array532[var6].anInt967 != target)); ++var6)
 					;
 
                   if(var6 < Class109_Sub21_Sub17.anInt1589) {
@@ -651,23 +654,23 @@ public final class client extends Applet_Sub1 {
                      Class53.aClass109_Sub7Array532[Class109_Sub21_Sub17.anInt1589] = null;
                   }
                } else {
-                  aClass109_Sub14_Sub1_2211.method602();
+                  gameBuffer.method602();
                   final Class109_Sub7 var62 = new Class109_Sub7();
                   var62.aString969 = var13;
                   var62.aString968 = Class6.method39(var62.aString969, Class95.aClass113_708);
-                  var62.anInt967 = var2;
+                  var62.anInt967 = target;
                   var62.aByte971 = var49;
 
                   for(var14 = Class109_Sub21_Sub17.anInt1589 - 1; var14 >= 0; --var14) {
                      var15 = Class53.aClass109_Sub7Array532[var14].aString968.compareTo(var62.aString968);
                      if(var15 == 0) {
-                        Class53.aClass109_Sub7Array532[var14].anInt967 = var2;
+                        Class53.aClass109_Sub7Array532[var14].anInt967 = target;
                         Class53.aClass109_Sub7Array532[var14].aByte971 = var49;
                         if(var13.equals(Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.aString1931))
 							Class109_Sub21_Sub11.aByte1494 = var49;
 
                         anInt2162 = anInt2131;
-                        anInt2013 = -1;
+                        incomingMessage = -1;
                         return true;
                      }
 
@@ -676,7 +679,7 @@ public final class client extends Applet_Sub1 {
                   }
 
                   if(Class109_Sub21_Sub17.anInt1589 >= Class53.aClass109_Sub7Array532.length) {
-                     anInt2013 = -1;
+                     incomingMessage = -1;
                      return true;
                   }
 
@@ -693,32 +696,32 @@ public final class client extends Applet_Sub1 {
                }
 
                anInt2162 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 168) {
+            if(incomingMessage == 168) {
                Class59.method275();
-               anInt2013 = -1;
+               incomingMessage = -1;
                return false;
             }
 
-            if(anInt2013 == 154) {
-               Class8.anInt89 = aClass109_Sub14_Sub1_2211.method585();
-               Class109_Sub21_Sub13.anInt1544 = aClass109_Sub14_Sub1_2211.method584();
-               anInt2013 = -1;
+            if(incomingMessage == 154) {
+               Class8.anInt89 = gameBuffer.readByteS();
+               Class109_Sub21_Sub13.anInt1544 = gameBuffer.method584();
+               incomingMessage = -1;
                return true;
             }
 
             long var18;
             Class109_Sub20 var68;
             int var71;
-            if(anInt2013 == 250) {
-               var1 = anInt2012 + aClass109_Sub14_Sub1_2211.position;
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               var3 = aClass109_Sub14_Sub1_2211.method566();
-               if(var2 != anInt2128) {
-                  anInt2128 = var2;
+            if(incomingMessage == 250) {
+               id = anInt2012 + gameBuffer.position;
+               target = gameBuffer.readShort();
+               walkable = gameBuffer.readShort();
+               if(target != anInt2128) {
+                  anInt2128 = target;
                   Class109_Sub21_Sub13.method766(false);
                   var5 = anInt2128;
                   if(Class108.method412(var5)) {
@@ -740,10 +743,10 @@ public final class client extends Applet_Sub1 {
                }
 
                Class109_Sub13 var70;
-               for(; var3-- > 0; var70.aBool1046 = true) {
-                  var5 = aClass109_Sub14_Sub1_2211.method568();
-                  var6 = aClass109_Sub14_Sub1_2211.method566();
-                  var14 = aClass109_Sub14_Sub1_2211.method564();
+               for(; walkable-- > 0; var70.aBool1046 = true) {
+                  var5 = gameBuffer.readInt();
+                  var6 = gameBuffer.readShort();
+                  var14 = gameBuffer.method564();
                   var70 = (Class109_Sub13)aClass116_2129.method429(var5);
                   if((var70 != null) && (var6 != var70.anInt1050)) {
                      method1064(var70, true);
@@ -751,7 +754,7 @@ public final class client extends Applet_Sub1 {
                   }
 
                   if(null == var70)
-					var70 = Class25.method113(var5, var6, var14);
+					var70 = Class25.openInterface(var5, var6, var14);
                }
 
                for(var46 = (Class109_Sub13)aClass116_2129.method432(); var46 != null; var46 = (Class109_Sub13)aClass116_2129.method433())
@@ -762,11 +765,11 @@ public final class client extends Applet_Sub1 {
 
                aClass116_1999 = new Class116(512);
 
-               while(aClass109_Sub14_Sub1_2211.position < var1) {
-                  var5 = aClass109_Sub14_Sub1_2211.method568();
-                  var6 = aClass109_Sub14_Sub1_2211.method566();
-                  var14 = aClass109_Sub14_Sub1_2211.method566();
-                  var15 = aClass109_Sub14_Sub1_2211.method568();
+               while(gameBuffer.position < id) {
+                  var5 = gameBuffer.readInt();
+                  var6 = gameBuffer.readShort();
+                  var14 = gameBuffer.readShort();
+                  var15 = gameBuffer.readInt();
 
                   for(var71 = var6; var71 <= var14; ++var71) {
                      var18 = var71 + ((long)var5 << 32);
@@ -774,114 +777,114 @@ public final class client extends Applet_Sub1 {
                   }
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             boolean var42;
-            if(anInt2013 == 129) {
+            if(incomingMessage == 129) {
                anInt2028 = 0;
                anInt2089 = 0;
-               aClass109_Sub14_Sub1_2211.method843();
-               var1 = aClass109_Sub14_Sub1_2211.method844(1);
-               if(var1 != 0) {
-                  var2 = aClass109_Sub14_Sub1_2211.method844(2);
-                  if(var2 == 0)
+               gameBuffer.method843();
+               id = gameBuffer.method844(1);
+               if(id != 0) {
+                  target = gameBuffer.method844(2);
+                  if(target == 0)
 					anIntArray2186[++anInt2089 - 1] = 2047;
-				else if(var2 == 1) {
-                     var3 = aClass109_Sub14_Sub1_2211.method844(3);
-                     Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method896(var3, false);
-                     var5 = aClass109_Sub14_Sub1_2211.method844(1);
+				else if(target == 1) {
+                     walkable = gameBuffer.method844(3);
+                     Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method896(walkable, false);
+                     var5 = gameBuffer.method844(1);
                      if(var5 == 1)
 						anIntArray2186[++anInt2089 - 1] = 2047;
-                  } else if(var2 == 2) {
-                     var3 = aClass109_Sub14_Sub1_2211.method844(3);
-                     Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method896(var3, true);
-                     var5 = aClass109_Sub14_Sub1_2211.method844(3);
+                  } else if(target == 2) {
+                     walkable = gameBuffer.method844(3);
+                     Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method896(walkable, true);
+                     var5 = gameBuffer.method844(3);
                      Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method896(var5, true);
-                     var6 = aClass109_Sub14_Sub1_2211.method844(1);
+                     var6 = gameBuffer.method844(1);
                      if(var6 == 1)
 						anIntArray2186[++anInt2089 - 1] = 2047;
-                  } else if(var2 == 3) {
-                     var3 = aClass109_Sub14_Sub1_2211.method844(1);
-                     var5 = aClass109_Sub14_Sub1_2211.method844(7);
-                     Class77.anInt616 = aClass109_Sub14_Sub1_2211.method844(2);
-                     var6 = aClass109_Sub14_Sub1_2211.method844(1);
+                  } else if(target == 3) {
+                     walkable = gameBuffer.method844(1);
+                     var5 = gameBuffer.method844(7);
+                     Class77.anInt616 = gameBuffer.method844(2);
+                     var6 = gameBuffer.method844(1);
                      if(var6 == 1)
 						anIntArray2186[++anInt2089 - 1] = 2047;
 
-                     var14 = aClass109_Sub14_Sub1_2211.method844(7);
-                     Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method895(var5, var14, var3 == 1);
+                     var14 = gameBuffer.method844(7);
+                     Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method895(var5, var14, walkable == 1);
                   }
                }
 
                Class109_Sub21_Sub13.method767();
 
                Class109_Sub21_Sub15_Sub3_Sub2 var65;
-               for(; aClass109_Sub14_Sub1_2211.method846(anInt2012) >= 11; var65.method895(Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1655[0] + var6, var71 + Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1706[0], var15 == 1)) {
-                  var1 = aClass109_Sub14_Sub1_2211.method844(11);
-                  if(var1 == 2047)
+               for(; gameBuffer.method846(anInt2012) >= 11; var65.method895(Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1655[0] + var6, var71 + Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1706[0], var15 == 1)) {
+                  id = gameBuffer.method844(11);
+                  if(id == 2047)
 					break;
 
                   var42 = false;
-                  if(aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1] == null) {
-                     aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1] = new Class109_Sub21_Sub15_Sub3_Sub2();
-                     if(null != aClass109_Sub14Array2091[var1])
-						aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1].method1037(aClass109_Sub14Array2091[var1]);
+                  if(aClass109_Sub21_Sub15_Sub3_Sub2Array2086[id] == null) {
+                     aClass109_Sub21_Sub15_Sub3_Sub2Array2086[id] = new Class109_Sub21_Sub15_Sub3_Sub2();
+                     if(null != aClass109_Sub14Array2091[id])
+						aClass109_Sub21_Sub15_Sub3_Sub2Array2086[id].method1037(aClass109_Sub14Array2091[id]);
 
                      var42 = true;
                   }
 
-                  anIntArray2134[++anInt2087 - 1] = var1;
-                  var65 = aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1];
+                  anIntArray2134[++anInt2087 - 1] = id;
+                  var65 = aClass109_Sub21_Sub15_Sub3_Sub2Array2086[id];
                   var65.anInt1700 = anInt1979;
-                  var5 = aClass109_Sub14_Sub1_2211.method844(1);
+                  var5 = gameBuffer.method844(1);
                   if(var5 == 1)
-					anIntArray2186[++anInt2089 - 1] = var1;
+					anIntArray2186[++anInt2089 - 1] = id;
 
-                  var6 = aClass109_Sub14_Sub1_2211.method844(5);
+                  var6 = gameBuffer.method844(5);
                   if(var6 > 15)
 					var6 -= 32;
 
-                  var14 = anIntArray2099[aClass109_Sub14_Sub1_2211.method844(3)];
+                  var14 = anIntArray2099[gameBuffer.method844(3)];
                   if(var42)
 					var65.anInt1680 = var65.anInt1654 = var14;
 
-                  var15 = aClass109_Sub14_Sub1_2211.method844(1);
-                  var71 = aClass109_Sub14_Sub1_2211.method844(5);
+                  var15 = gameBuffer.method844(1);
+                  var71 = gameBuffer.method844(5);
                   if(var71 > 15)
 					var71 -= 32;
                }
 
-               aClass109_Sub14_Sub1_2211.method845();
+               gameBuffer.method845();
                Class23.method103();
 
-               for(var1 = 0; var1 < anInt2028; ++var1) {
-                  var2 = anIntArray2095[var1];
-                  if(anInt1979 != aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var2].anInt1700)
-					aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var2] = null;
+               for(id = 0; id < anInt2028; ++id) {
+                  target = anIntArray2095[id];
+                  if(anInt1979 != aClass109_Sub21_Sub15_Sub3_Sub2Array2086[target].anInt1700)
+					aClass109_Sub21_Sub15_Sub3_Sub2Array2086[target] = null;
                }
 
-               if(aClass109_Sub14_Sub1_2211.position != anInt2012)
-				throw new RuntimeException(aClass109_Sub14_Sub1_2211.position + "," + anInt2012);
+               if(gameBuffer.position != anInt2012)
+				throw new RuntimeException(gameBuffer.position + "," + anInt2012);
 
-               for(var1 = 0; var1 < anInt2087; ++var1)
-				if(aClass109_Sub21_Sub15_Sub3_Sub2Array2086[anIntArray2134[var1]] == null)
-					throw new RuntimeException(var1 + "," + anInt2087);
+               for(id = 0; id < anInt2087; ++id)
+				if(aClass109_Sub21_Sub15_Sub3_Sub2Array2086[anIntArray2134[id]] == null)
+					throw new RuntimeException(id + "," + anInt2087);
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             String var43;
             String var50;
-            if(anInt2013 == 206) {
-               for(; aClass109_Sub14_Sub1_2211.position < anInt2012;) {
-                  var1 = aClass109_Sub14_Sub1_2211.method564();
-                  var42 = (var1 & 1) == 1;
-                  var50 = aClass109_Sub14_Sub1_2211.method602();
-                  var43 = aClass109_Sub14_Sub1_2211.method602();
-                  aClass109_Sub14_Sub1_2211.method602();
+            if(incomingMessage == 206) {
+               for(; gameBuffer.position < anInt2012;) {
+                  id = gameBuffer.method564();
+                  var42 = (id & 1) == 1;
+                  var50 = gameBuffer.method602();
+                  var43 = gameBuffer.method602();
+                  gameBuffer.method602();
 
                   for(var6 = 0; var6 < anInt2132; ++var6) {
                      final Class36 var74 = aClass36Array2242[var6];
@@ -902,94 +905,94 @@ public final class client extends Applet_Sub1 {
                }
 
                anInt2161 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 30) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               var10 = Class83.method345(var1);
-               if((var10.anInt1188 != 1) || (var10.anInt1189 != var2)) {
+            if(incomingMessage == 30) {
+               id = gameBuffer.readInt();
+               target = gameBuffer.readShort();
+               var10 = Class83.method345(id);
+               if((var10.anInt1188 != 1) || (var10.anInt1189 != target)) {
                   var10.anInt1188 = 1;
-                  var10.anInt1189 = var2;
+                  var10.anInt1189 = target;
                   Class71.method315(var10);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             boolean var41;
-            if(anInt2013 == 43) {
-               var41 = aClass109_Sub14_Sub1_2211.method564() == 1;
+            if(incomingMessage == 43) {
+               var41 = gameBuffer.method564() == 1;
                if(var41) {
-                  Class104.aLong790 = Class109_Sub21_Sub15.method829(856674336) - aClass109_Sub14_Sub1_2211.method613();
-                  Class109_Sub21_Sub15_Sub3_Sub1.aClass136_1924 = new Class136(aClass109_Sub14_Sub1_2211, true);
+                  Class104.aLong790 = Class109_Sub21_Sub15.method829(856674336) - gameBuffer.method613();
+                  Class109_Sub21_Sub15_Sub3_Sub1.aClass136_1924 = new Class136(gameBuffer, true);
                } else
 				Class109_Sub21_Sub15_Sub3_Sub1.aClass136_1924 = null;
 
                anInt2061 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 56) {
-               var1 = aClass109_Sub14_Sub1_2211.method591();
-               final byte var51 = aClass109_Sub14_Sub1_2211.method612();
-               Class106.anIntArray797[var1] = var51;
-               if(var51 != Class106.anIntArray798[var1]) {
-                  Class106.anIntArray798[var1] = var51;
-                  Class47.method244(var1);
+            if(incomingMessage == 56) {
+               id = gameBuffer.readLEShort();
+               final byte var51 = gameBuffer.method612();
+               Class106.anIntArray797[id] = var51;
+               if(var51 != Class106.anIntArray798[id]) {
+                  Class106.anIntArray798[id] = var51;
+                  Class47.method244(id);
                }
 
-               anIntArray1992[(++anInt2041 - 1) & 31] = var1;
-               anInt2013 = -1;
+               anIntArray1992[(++anInt2041 - 1) & 31] = id;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 29) {
-               for(var1 = 0; var1 < Class106.anIntArray798.length; ++var1)
-				if(Class106.anIntArray797[var1] != Class106.anIntArray798[var1]) {
-                     Class106.anIntArray798[var1] = Class106.anIntArray797[var1];
-                     Class47.method244(var1);
-                     anIntArray1992[(++anInt2041 - 1) & 31] = var1;
+            if(incomingMessage == 29) {
+               for(id = 0; id < Class106.anIntArray798.length; ++id)
+				if(Class106.anIntArray797[id] != Class106.anIntArray798[id]) {
+                     Class106.anIntArray798[id] = Class106.anIntArray797[id];
+                     Class47.method244(id);
+                     anIntArray1992[(++anInt2041 - 1) & 31] = id;
                   }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if((anInt2013 == 116) || (anInt2013 == 127) || (anInt2013 == 95) || (anInt2013 == 239) || (anInt2013 == 49) || (anInt2013 == 83) || (anInt2013 == 205) || (anInt2013 == 25) || (anInt2013 == 241) || (anInt2013 == 215)) {
+            if((incomingMessage == 116) || (incomingMessage == 127) || (incomingMessage == 95) || (incomingMessage == 239) || (incomingMessage == 49) || (incomingMessage == 83) || (incomingMessage == 205) || (incomingMessage == 25) || (incomingMessage == 241) || (incomingMessage == 215)) {
                Class109_Sub21_Sub11.method749();
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 117) {
-               Class109_Sub7.method524(true);
-               anInt2013 = -1;
+            if(incomingMessage == 117) {
+               Class109_Sub7.decodeMapRegion(true);
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 136) {
-               var1 = aClass109_Sub14_Sub1_2211.method611();
-               var2 = aClass109_Sub14_Sub1_2211.method614();
-               final Class109_Sub13 var58 = (Class109_Sub13)aClass116_2129.method429(var1);
-               var46 = (Class109_Sub13)aClass116_2129.method429(var2);
+            if(incomingMessage == 136) {
+               id = gameBuffer.method611();
+               target = gameBuffer.method614();
+               final Class109_Sub13 var58 = (Class109_Sub13)aClass116_2129.method429(id);
+               var46 = (Class109_Sub13)aClass116_2129.method429(target);
                if(var46 != null)
 				method1064(var46, (var58 == null) || (var58.anInt1050 != var46.anInt1050));
 
                if(null != var58) {
                   var58.method413();
-                  aClass116_2129.method430(var58, var2);
+                  aClass116_2129.method430(var58, target);
                }
 
-               var56 = Class83.method345(var1);
+               var56 = Class83.method345(id);
                if(null != var56)
 				Class71.method315(var56);
 
-               var56 = Class83.method345(var2);
+               var56 = Class83.method345(target);
                if(var56 != null) {
                   Class71.method315(var56);
                   Class9.method53(Class109_Sub20.aClass109_Sub20ArrayArray1150[var56.anInt1148 >>> 16], var56, true);
@@ -1001,38 +1004,38 @@ public final class client extends Applet_Sub1 {
 					Class56.method268(Class109_Sub20.aClass109_Sub20ArrayArray1150[var14], 1);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
             Class109_Sub20 var44;
-            if(anInt2013 == 224) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var2 = aClass109_Sub14_Sub1_2211.method592();
-               if(var2 == '\uffff')
-				var2 = -1;
+            if(incomingMessage == 224) {
+               id = gameBuffer.readInt();
+               target = gameBuffer.readLEShortA();
+               if(target == '\uffff')
+				target = -1;
 
-               var3 = aClass109_Sub14_Sub1_2211.method614();
-               var44 = Class83.method345(var1);
+               walkable = gameBuffer.method614();
+               var44 = Class83.method345(id);
                Class109_Sub21_Sub5 var53;
                if(!var44.aBool1146) {
-                  if(var2 == -1) {
+                  if(target == -1) {
                      var44.anInt1188 = 0;
-                     anInt2013 = -1;
+                     incomingMessage = -1;
                      return true;
                   }
 
-                  var53 = Class109_Sub23.method660(var2);
+                  var53 = Class109_Sub23.method660(target);
                   var44.anInt1188 = 4;
-                  var44.anInt1189 = var2;
+                  var44.anInt1189 = target;
                   var44.anInt1273 = var53.anInt1352;
                   var44.anInt1193 = var53.anInt1353;
-                  var44.anInt1199 = (var53.anInt1351 * 100) / var3;
+                  var44.anInt1199 = (var53.anInt1351 * 100) / walkable;
                   Class71.method315(var44);
                } else {
-                  var44.anInt1265 = var2;
-                  var44.anInt1266 = var3;
-                  var53 = Class109_Sub23.method660(var2);
+                  var44.anInt1265 = target;
+                  var44.anInt1266 = walkable;
+                  var53 = Class109_Sub23.method660(target);
                   var44.anInt1273 = var53.anInt1352;
                   var44.anInt1193 = var53.anInt1353;
                   var44.anInt1198 = var53.anInt1354;
@@ -1052,140 +1055,140 @@ public final class client extends Applet_Sub1 {
                   Class71.method315(var44);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 178) {
+            if(incomingMessage == 178) {
                Class137.method483(false);
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 16) {
-               var1 = aClass109_Sub14_Sub1_2211.method566();
-               var2 = aClass109_Sub14_Sub1_2211.method568();
-               var3 = (var1 >> 10) & 31;
-               var5 = (var1 >> 5) & 31;
-               var6 = var1 & 31;
-               var14 = (var5 << 11) + (var3 << 19) + (var6 << 3);
-               var68 = Class83.method345(var2);
+            if(incomingMessage == 16) {
+               id = gameBuffer.readShort();
+               target = gameBuffer.readInt();
+               walkable = (id >> 10) & 31;
+               var5 = (id >> 5) & 31;
+               var6 = id & 31;
+               var14 = (var5 << 11) + (walkable << 19) + (var6 << 3);
+               var68 = Class83.method345(target);
                if(var68.anInt1220 != var14) {
                   var68.anInt1220 = var14;
                   Class71.method315(var68);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 200) {
-               Class8.anInt89 = aClass109_Sub14_Sub1_2211.method564();
-               Class109_Sub21_Sub13.anInt1544 = aClass109_Sub14_Sub1_2211.method564();
+            if(incomingMessage == 200) {
+               Class8.anInt89 = gameBuffer.method564();
+               Class109_Sub21_Sub13.anInt1544 = gameBuffer.method564();
 
-               for(var1 = Class8.anInt89; var1 < (Class8.anInt89 + 8); ++var1)
-				for(var2 = Class109_Sub21_Sub13.anInt1544; var2 < (8 + Class109_Sub21_Sub13.anInt1544); ++var2)
-					if(aClass126ArrayArrayArray2121[Class77.anInt616][var1][var2] != null) {
-                        aClass126ArrayArrayArray2121[Class77.anInt616][var1][var2] = null;
-                        Class109_Sub21_Sub15_Sub3_Sub1.method1035(var1, var2);
+               for(id = Class8.anInt89; id < (Class8.anInt89 + 8); ++id)
+				for(target = Class109_Sub21_Sub13.anInt1544; target < (8 + Class109_Sub21_Sub13.anInt1544); ++target)
+					if(aClass126ArrayArrayArray2121[Class77.anInt616][id][target] != null) {
+                        aClass126ArrayArrayArray2121[Class77.anInt616][id][target] = null;
+                        Class109_Sub21_Sub15_Sub3_Sub1.method1035(id, target);
                      }
 
                for(Class109_Sub11 var66 = (Class109_Sub11)aClass126_2102.method458(); null != var66; var66 = (Class109_Sub11)aClass126_2102.method449())
 				if((var66.anInt1028 >= Class8.anInt89) && (var66.anInt1028 < (Class8.anInt89 + 8)) && (var66.anInt1029 >= Class109_Sub21_Sub13.anInt1544) && (var66.anInt1029 < (8 + Class109_Sub21_Sub13.anInt1544)) && (Class77.anInt616 == var66.anInt1038))
 					var66.anInt1035 = 0;
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 153) {
+            if(incomingMessage == 153) {
                Class44.method227();
-               anInt2103 = aClass109_Sub14_Sub1_2211.method575();
+               anInt2103 = gameBuffer.method575();
                anInt2165 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 246) {
-               var41 = aClass109_Sub14_Sub1_2211.method584() == 1;
-               var2 = aClass109_Sub14_Sub1_2211.method611();
-               var10 = Class83.method345(var2);
+            if(incomingMessage == 246) {
+               var41 = gameBuffer.method584() == 1;
+               target = gameBuffer.method611();
+               var10 = Class83.method345(target);
                if(var10.aBool1167 != var41) {
                   var10.aBool1167 = var41;
                   Class71.method315(var10);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 140) {
+            if(incomingMessage == 140) {
                Class44.method227();
-               anInt2133 = aClass109_Sub14_Sub1_2211.method564();
+               anInt2133 = gameBuffer.method564();
                anInt2165 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 202) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var2 = aClass109_Sub14_Sub1_2211.method594();
-               var3 = aClass109_Sub14_Sub1_2211.method593();
-               var44 = Class83.method345(var1);
-               if((var44.anInt1210 != var2) || (var3 != var44.anInt1157) || (var44.anInt1152 != 0) || (var44.anInt1153 != 0)) {
-                  var44.anInt1210 = var2;
-                  var44.anInt1157 = var3;
+            if(incomingMessage == 202) {
+               id = gameBuffer.readInt();
+               target = gameBuffer.method594();
+               walkable = gameBuffer.method593();
+               var44 = Class83.method345(id);
+               if((var44.anInt1210 != target) || (walkable != var44.anInt1157) || (var44.anInt1152 != 0) || (var44.anInt1153 != 0)) {
+                  var44.anInt1210 = target;
+                  var44.anInt1157 = walkable;
                   var44.anInt1152 = 0;
                   var44.anInt1153 = 0;
                   Class71.method315(var44);
                   Class53.method257(var44);
                   if(var44.anInt1229 == 0)
-					Class9.method53(Class109_Sub20.aClass109_Sub20ArrayArray1150[var1 >> 16], var44, false);
+					Class9.method53(Class109_Sub20.aClass109_Sub20ArrayArray1150[id >> 16], var44, false);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 184) {
-               var1 = aClass109_Sub14_Sub1_2211.method566();
-               final Class109_Sub12 var63 = (Class109_Sub12)Class109_Sub12.aClass116_1043.method429(var1);
+            if(incomingMessage == 184) {
+               id = gameBuffer.readShort();
+               final Class109_Sub12 var63 = (Class109_Sub12)Class109_Sub12.aClass116_1043.method429(id);
                if(var63 != null)
 				var63.method413();
 
-               anIntArray2156[(++anInt2145 - 1) & 31] = var1 & 32767;
-               anInt2013 = -1;
+               anIntArray2156[(++anInt2145 - 1) & 31] = id & 32767;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 230) {
-               var1 = aClass109_Sub14_Sub1_2211.method564();
-               var2 = aClass109_Sub14_Sub1_2211.method564();
-               var3 = aClass109_Sub14_Sub1_2211.method585();
-               Class77.anInt616 = var2 >> 1;
-               Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method895(var3, var1, (var2 & 1) == 1);
-               anInt2013 = -1;
+            if(incomingMessage == 230) {
+               id = gameBuffer.method564();
+               target = gameBuffer.method564();
+               walkable = gameBuffer.readByteS();
+               Class77.anInt616 = target >> 1;
+               Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.method895(walkable, id, (target & 1) == 1);
+               incomingMessage = -1;
                return true;
             }
 
             Class109_Sub20 var59;
-            if(anInt2013 == 7) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var59 = Class83.method345(var1);
+            if(incomingMessage == 7) {
+               id = gameBuffer.readInt();
+               var59 = Class83.method345(id);
 
-               for(var3 = 0; var3 < var59.anIntArray1149.length; ++var3) {
-                  var59.anIntArray1149[var3] = -1;
-                  var59.anIntArray1149[var3] = 0;
+               for(walkable = 0; walkable < var59.anIntArray1149.length; ++walkable) {
+                  var59.anIntArray1149[walkable] = -1;
+                  var59.anIntArray1149[walkable] = 0;
                }
 
                Class71.method315(var59);
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 65) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               final Class109_Sub13 var61 = (Class109_Sub13)aClass116_2129.method429(var1);
+            if(incomingMessage == 65) {
+               id = gameBuffer.readInt();
+               final Class109_Sub13 var61 = (Class109_Sub13)aClass116_2129.method429(id);
                if(null != var61)
 				method1064(var61, true);
 
@@ -1194,59 +1197,59 @@ public final class client extends Applet_Sub1 {
                   aClass109_Sub20_2044 = null;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 160) {
-               var1 = aClass109_Sub14_Sub1_2211.method592();
-               if(var1 == '\uffff')
-				var1 = -1;
+            if(incomingMessage == 160) {
+               id = gameBuffer.readLEShortA();
+               if(id == '\uffff')
+				id = -1;
 
-               Class82.method344(var1);
-               anInt2013 = -1;
+               Class82.method344(id);
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 88) {
-               var1 = aClass109_Sub14_Sub1_2211.method567();
-               var2 = aClass109_Sub14_Sub1_2211.method591();
-               if(var2 == '\uffff')
-				var2 = -1;
+            if(incomingMessage == 88) {
+               id = gameBuffer.method567();
+               target = gameBuffer.readLEShort();
+               if(target == '\uffff')
+				target = -1;
 
-               if((anInt2207 != 0) && (var2 != -1)) {
-                  Class104_Sub1.method644(Class123.aClass104_Sub1_850, var2, 0, anInt2207, false);
+               if((anInt2207 != 0) && (target != -1)) {
+                  Class104_Sub1.method644(Class123.aClass104_Sub1_850, target, 0, anInt2207, false);
                   aBool2209 = true;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 31) {
-               var1 = aClass109_Sub14_Sub1_2211.method599();
-               var59 = Class83.method345(var1);
+            if(incomingMessage == 31) {
+               id = gameBuffer.readIntV1();
+               var59 = Class83.method345(id);
                var59.anInt1188 = 3;
                var59.anInt1189 = Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.aClass96_1929.method364();
                Class71.method315(var59);
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 175) {
-               var1 = aClass109_Sub14_Sub1_2211.method592();
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               var3 = aClass109_Sub14_Sub1_2211.method614();
-               var44 = Class83.method345(var3);
-               var44.anInt1201 = var2 + (var1 << 16);
-               anInt2013 = -1;
+            if(incomingMessage == 175) {
+               id = gameBuffer.readLEShortA();
+               target = gameBuffer.readShort();
+               walkable = gameBuffer.method614();
+               var44 = Class83.method345(walkable);
+               var44.anInt1201 = target + (id << 16);
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 137) {
-               anInt2158 = aClass109_Sub14_Sub1_2211.method564();
+            if(incomingMessage == 137) {
+               anInt2158 = gameBuffer.method564();
                if(anInt2158 == 1)
-				anInt1989 = aClass109_Sub14_Sub1_2211.method566();
+				anInt1989 = gameBuffer.readShort();
 
                if((anInt2158 >= 2) && (anInt2158 <= 6)) {
                   if(anInt2158 == 2) {
@@ -1275,59 +1278,59 @@ public final class client extends Applet_Sub1 {
                   }
 
                   anInt2158 = 2;
-                  anInt2054 = aClass109_Sub14_Sub1_2211.method566();
-                  anInt2223 = aClass109_Sub14_Sub1_2211.method566();
-                  anInt2093 = aClass109_Sub14_Sub1_2211.method564();
+                  anInt2054 = gameBuffer.readShort();
+                  anInt2223 = gameBuffer.readShort();
+                  anInt2093 = gameBuffer.method564();
                }
 
                if(anInt2158 == 10)
-				anInt2140 = aClass109_Sub14_Sub1_2211.method566();
+				anInt2140 = gameBuffer.readShort();
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 162) {
-               var1 = aClass109_Sub14_Sub1_2211.method564();
-               if(aClass109_Sub14_Sub1_2211.method564() == 0) {
-                  aClass134Array2246[var1] = new Class134();
-                  aClass109_Sub14_Sub1_2211.position += 18;
+            if(incomingMessage == 162) {
+               id = gameBuffer.method564();
+               if(gameBuffer.method564() == 0) {
+                  aClass134Array2246[id] = new Class134();
+                  gameBuffer.position += 18;
                } else {
-                  --aClass109_Sub14_Sub1_2211.position;
-                  aClass134Array2246[var1] = new Class134(aClass109_Sub14_Sub1_2211, false);
+                  --gameBuffer.position;
+                  aClass134Array2246[id] = new Class134(gameBuffer, false);
                }
 
                anInt2163 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 138) {
+            if(incomingMessage == 138) {
                if(anInt2128 != -1) {
-                  var1 = anInt2128;
-                  if(Class108.method412(var1))
-					Class56.method268(Class109_Sub20.aClass109_Sub20ArrayArray1150[var1], 0);
+                  id = anInt2128;
+                  if(Class108.method412(id))
+					Class56.method268(Class109_Sub20.aClass109_Sub20ArrayArray1150[id], 0);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 167) {
-               var13 = aClass109_Sub14_Sub1_2211.method602();
+            if(incomingMessage == 167) {
+               var13 = gameBuffer.method602();
                final Object[] var57 = new Object[var13.length() + 1];
 
-               for(var3 = var13.length() - 1; var3 >= 0; --var3)
-				if(var13.charAt(var3) == 115)
-					var57[1 + var3] = aClass109_Sub14_Sub1_2211.method602();
+               for(walkable = var13.length() - 1; walkable >= 0; --walkable)
+				if(var13.charAt(walkable) == 115)
+					var57[1 + walkable] = gameBuffer.method602();
 				else
-					var57[var3 + 1] = new Integer(aClass109_Sub14_Sub1_2211.method568());
+					var57[walkable + 1] = new Integer(gameBuffer.readInt());
 
-               var57[0] = new Integer(aClass109_Sub14_Sub1_2211.method568());
+               var57[0] = new Integer(gameBuffer.readInt());
                final Class109_Sub9 var54 = new Class109_Sub9();
                var54.anObjectArray997 = var57;
                Class109_Sub13.method551(var54, 200000);
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
@@ -1336,12 +1339,12 @@ public final class client extends Applet_Sub1 {
             boolean var25;
             int var28;
             String var29;
-            if(anInt2013 == 204) {
-               var13 = aClass109_Sub14_Sub1_2211.method602();
-               var21 = aClass109_Sub14_Sub1_2211.method613();
-               var23 = aClass109_Sub14_Sub1_2211.method566();
-               var7 = aClass109_Sub14_Sub1_2211.method567();
-               final Class89 var9 = (Class89)Class33.method151(Class109_Sub21_Sub15_Sub6.method980(), aClass109_Sub14_Sub1_2211.method564());
+            if(incomingMessage == 204) {
+               var13 = gameBuffer.method602();
+               var21 = gameBuffer.method613();
+               var23 = gameBuffer.readShort();
+               var7 = gameBuffer.method567();
+               final Class89 var9 = (Class89)Class33.method151(Class109_Sub21_Sub15_Sub6.method980(), gameBuffer.method564());
                var18 = var7 + (var23 << 32);
                var25 = false;
 
@@ -1357,7 +1360,7 @@ public final class client extends Applet_Sub1 {
                if(!var25 && (anInt2085 == 0)) {
                   aLongArray2191[anInt2192] = var18;
                   anInt2192 = (1 + anInt2192) % 100;
-                  final String var76 = Class109_Sub21_Sub14_Sub4.method1013(Class35.method158(Class48.method245(aClass109_Sub14_Sub1_2211)));
+                  final String var76 = Class109_Sub21_Sub14_Sub4.method1013(Class35.method158(Class48.method245(gameBuffer)));
                   if(var9.anInt678 != -1) {
                      var28 = var9.anInt678;
                      var29 = "<img=" + var28 + ">";
@@ -1366,58 +1369,58 @@ public final class client extends Applet_Sub1 {
 					Class109_Sub21_Sub4.method683(9, var13, var76, Class67.method302(var21));
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 9) {
-               var1 = aClass109_Sub14_Sub1_2211.method564();
-               var2 = aClass109_Sub14_Sub1_2211.method564();
-               var3 = aClass109_Sub14_Sub1_2211.method564();
-               var5 = aClass109_Sub14_Sub1_2211.method564();
-               aBoolArray2200[var1] = true;
-               anIntArray1976[var1] = var2;
-               anIntArray2221[var1] = var3;
-               anIntArray2183[var1] = var5;
-               anIntArray2188[var1] = 0;
-               anInt2013 = -1;
+            if(incomingMessage == 9) {
+               id = gameBuffer.method564();
+               target = gameBuffer.method564();
+               walkable = gameBuffer.method564();
+               var5 = gameBuffer.method564();
+               aBoolArray2200[id] = true;
+               anIntArray1976[id] = target;
+               anIntArray2221[id] = walkable;
+               anIntArray2183[id] = var5;
+               anIntArray2188[id] = 0;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 5) {
-               aClass109_Sub14_Sub1_2211.position += 28;
-               if(aClass109_Sub14_Sub1_2211.method581())
-				Class109_Sub21_Sub16.method835(aClass109_Sub14_Sub1_2211, aClass109_Sub14_Sub1_2211.position - 28);
+            if(incomingMessage == 5) {
+               gameBuffer.position += 28;
+               if(gameBuffer.method581())
+				Class109_Sub21_Sub16.method835(gameBuffer, gameBuffer.position - 28);
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 53) {
-               anInt2204 = aClass109_Sub14_Sub1_2211.method564();
+            if(incomingMessage == 53) {
+               anInt2204 = gameBuffer.method564();
                if(anInt2204 == 255)
 				anInt2204 = 0;
 
-               anInt2205 = aClass109_Sub14_Sub1_2211.method564();
+               anInt2205 = gameBuffer.method564();
                if(anInt2205 == 255)
 				anInt2205 = 0;
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 216) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               aClass86_1997 = Class109_Sub21_Sub11.aClass71_1495.method312(var1);
-               anInt2013 = -1;
+            if(incomingMessage == 216) {
+               id = gameBuffer.readInt();
+               aClass86_1997 = Class109_Sub21_Sub11.aClass71_1495.method312(id);
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 59) {
-               var13 = aClass109_Sub14_Sub1_2211.method602();
-               var21 = aClass109_Sub14_Sub1_2211.method566();
-               var23 = aClass109_Sub14_Sub1_2211.method567();
-               final Class89 var73 = (Class89)Class33.method151(Class109_Sub21_Sub15_Sub6.method980(), aClass109_Sub14_Sub1_2211.method564());
+            if(incomingMessage == 59) {
+               var13 = gameBuffer.method602();
+               var21 = gameBuffer.readShort();
+               var23 = gameBuffer.method567();
+               final Class89 var73 = (Class89)Class33.method151(Class109_Sub21_Sub15_Sub6.method980(), gameBuffer.method564());
                final long var30 = var23 + (var21 << 32);
                boolean var77 = false;
 
@@ -1433,7 +1436,7 @@ public final class client extends Applet_Sub1 {
                if(!var77 && (anInt2085 == 0)) {
                   aLongArray2191[anInt2192] = var30;
                   anInt2192 = (anInt2192 + 1) % 100;
-                  final String var78 = Class109_Sub21_Sub14_Sub4.method1013(Class35.method158(Class48.method245(aClass109_Sub14_Sub1_2211)));
+                  final String var78 = Class109_Sub21_Sub14_Sub4.method1013(Class35.method158(Class48.method245(gameBuffer)));
                   byte var75;
                   if(var73.aBool680)
 					var75 = 7;
@@ -1448,24 +1451,24 @@ public final class client extends Applet_Sub1 {
 					Applet_Sub1.method1053(var75, var13, var78);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 186) {
+            if(incomingMessage == 186) {
                aBool2218 = true;
-               Class3.anInt28 = aClass109_Sub14_Sub1_2211.method564();
-               Class21.anInt196 = aClass109_Sub14_Sub1_2211.method564();
-               Class52.anInt531 = aClass109_Sub14_Sub1_2211.method566();
-               Class109_Sub11.anInt1036 = aClass109_Sub14_Sub1_2211.method564();
-               Class109_Sub21_Sub4.anInt1333 = aClass109_Sub14_Sub1_2211.method564();
+               Class3.anInt28 = gameBuffer.method564();
+               Class21.anInt196 = gameBuffer.method564();
+               Class52.anInt531 = gameBuffer.readShort();
+               Class109_Sub11.anInt1036 = gameBuffer.method564();
+               Class109_Sub21_Sub4.anInt1333 = gameBuffer.method564();
                if(Class109_Sub21_Sub4.anInt1333 >= 100) {
-                  var1 = 64 + (Class3.anInt28 * 128);
-                  var2 = (Class21.anInt196 * 128) + 64;
-                  var3 = Class41.method174(var1, var2, Class77.anInt616) - Class52.anInt531;
-                  var5 = var1 - Class109_Sub13.anInt1048;
-                  var6 = var3 - Class24.anInt222;
-                  var14 = var2 - Class109_Sub21_Sub9.anInt1420;
+                  id = 64 + (Class3.anInt28 * 128);
+                  target = (Class21.anInt196 * 128) + 64;
+                  walkable = Class41.method174(id, target, Class77.anInt616) - Class52.anInt531;
+                  var5 = id - Class109_Sub13.anInt1048;
+                  var6 = walkable - Class24.anInt222;
+                  var14 = target - Class109_Sub21_Sub9.anInt1420;
                   var15 = (int)Math.sqrt((var5 * var5) + (var14 * var14));
                   Class46.anInt490 = (int)(Math.atan2(var6, var15) * 325.949D) & 2047;
                   Class109_Sub21_Sub1.anInt1298 = (int)(Math.atan2(var5, var14) * -325.949D) & 2047;
@@ -1476,33 +1479,34 @@ public final class client extends Applet_Sub1 {
 					Class46.anInt490 = 383;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 249) {
-               var1 = aClass109_Sub14_Sub1_2211.method599();
-               var2 = aClass109_Sub14_Sub1_2211.method559();
-               Class106.anIntArray797[var2] = var1;
-               if(Class106.anIntArray798[var2] != var1) {
-                  Class106.anIntArray798[var2] = var1;
-                  Class47.method244(var2);
+            if(incomingMessage == 249) {
+               id = gameBuffer.readIntV1();
+               target = gameBuffer.readShortA();
+               Class106.anIntArray797[target] = id;
+               if(Class106.anIntArray798[target] != id) {
+                  Class106.anIntArray798[target] = id;
+                  Class47.method244(target);
                }
 
-               anIntArray1992[(++anInt2041 - 1) & 31] = var2;
-               anInt2013 = -1;
+               anIntArray1992[(++anInt2041 - 1) & 31] = target;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 108) {
-               var1 = aClass109_Sub14_Sub1_2211.method592();
-               anInt2128 = var1;
+            // Root pane
+            if(incomingMessage == 108) {
+               id = gameBuffer.readLEShortA();
+               anInt2128 = id;
                Class109_Sub21_Sub13.method766(false);
-               if(Class108.method412(var1)) {
-                  final Class109_Sub20[] var55 = Class109_Sub20.aClass109_Sub20ArrayArray1150[var1];
+               if(Class108.method412(id)) {
+                  final Class109_Sub20[] var55 = Class109_Sub20.aClass109_Sub20ArrayArray1150[id];
 
-                  for(var3 = 0; var3 < var55.length; ++var3) {
-                     var44 = var55[var3];
+                  for(walkable = 0; walkable < var55.length; ++walkable) {
+                     var44 = var55[walkable];
                      if(null != var44) {
                         var44.anInt1267 = 0;
                         var44.anInt1268 = 0;
@@ -1512,15 +1516,15 @@ public final class client extends Applet_Sub1 {
 
                Class87.method351(anInt2128);
 
-               for(var2 = 0; var2 < 100; ++var2)
-				aBoolArray2116[var2] = true;
+               for(target = 0; target < 100; ++target)
+				aBoolArray2116[target] = true;
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 39) {
-               var13 = aClass109_Sub14_Sub1_2211.method602();
+            if(incomingMessage == 39) {
+               var13 = gameBuffer.method602();
                Class41.aString371 = var13;
 
                try {
@@ -1537,54 +1541,54 @@ public final class client extends Applet_Sub1 {
                   ;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 64) {
-               Class105.method411(aClass109_Sub14_Sub1_2211);
-               anInt2013 = -1;
+            if(incomingMessage == 64) {
+               Class105.method411(gameBuffer);
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 114) {
-               anInt2008 = aClass109_Sub14_Sub1_2211.method564();
-               anInt2189 = aClass109_Sub14_Sub1_2211.method564();
-               anInt2013 = -1;
+            if(incomingMessage == 114) {
+               anInt2008 = gameBuffer.method564();
+               anInt2189 = gameBuffer.method564();
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 208) {
+            if(incomingMessage == 208) {
                anInt2162 = anInt2131;
                if(anInt2012 == 0) {
                   aString2015 = null;
                   aString2198 = null;
                   Class109_Sub21_Sub17.anInt1589 = 0;
                   Class53.aClass109_Sub7Array532 = null;
-                  anInt2013 = -1;
+                  incomingMessage = -1;
                   return true;
                }
 
-               aString2198 = aClass109_Sub14_Sub1_2211.method602();
-               final long var35 = aClass109_Sub14_Sub1_2211.method613();
+               aString2198 = gameBuffer.method602();
+               final long var35 = gameBuffer.method613();
                aString2015 = Class32.method141(var35);
-               Class109_Sub12.aByte1044 = aClass109_Sub14_Sub1_2211.method612();
-               var3 = aClass109_Sub14_Sub1_2211.method564();
-               if(var3 == 255) {
-                  anInt2013 = -1;
+               Class109_Sub12.aByte1044 = gameBuffer.method612();
+               walkable = gameBuffer.method564();
+               if(walkable == 255) {
+                  incomingMessage = -1;
                   return true;
                }
 
-               Class109_Sub21_Sub17.anInt1589 = var3;
+               Class109_Sub21_Sub17.anInt1589 = walkable;
                final Class109_Sub7[] var4 = new Class109_Sub7[100];
 
                for(var6 = 0; var6 < Class109_Sub21_Sub17.anInt1589; ++var6) {
                   var4[var6] = new Class109_Sub7();
-                  var4[var6].aString969 = aClass109_Sub14_Sub1_2211.method602();
+                  var4[var6].aString969 = gameBuffer.method602();
                   var4[var6].aString968 = Class6.method39(var4[var6].aString969, Class95.aClass113_708);
-                  var4[var6].anInt967 = aClass109_Sub14_Sub1_2211.method566();
-                  var4[var6].aByte971 = aClass109_Sub14_Sub1_2211.method612();
-                  aClass109_Sub14_Sub1_2211.method602();
+                  var4[var6].anInt967 = gameBuffer.readShort();
+                  var4[var6].aByte971 = gameBuffer.method612();
+                  gameBuffer.method602();
                   if(var4[var6].aString969.equals(Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.aString1931))
 					Class109_Sub21_Sub11.aByte1494 = var4[var6].aByte971;
                }
@@ -1609,34 +1613,34 @@ public final class client extends Applet_Sub1 {
                }
 
                Class53.aClass109_Sub7Array532 = var4;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 201) {
-               anInt1987 = aClass109_Sub14_Sub1_2211.method592() * 30;
+            if(incomingMessage == 201) {
+               anInt1987 = gameBuffer.readLEShortA() * 30;
                anInt2165 = anInt2131;
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 6) {
-               for(; aClass109_Sub14_Sub1_2211.position < anInt2012;) {
-                  var41 = aClass109_Sub14_Sub1_2211.method564() == 1;
-                  var11 = aClass109_Sub14_Sub1_2211.method602();
-                  var50 = aClass109_Sub14_Sub1_2211.method602();
-                  var5 = aClass109_Sub14_Sub1_2211.method566();
-                  var6 = aClass109_Sub14_Sub1_2211.method564();
-                  var14 = aClass109_Sub14_Sub1_2211.method564();
+            if(incomingMessage == 6) {
+               for(; gameBuffer.position < anInt2012;) {
+                  var41 = gameBuffer.method564() == 1;
+                  var11 = gameBuffer.method602();
+                  var50 = gameBuffer.method602();
+                  var5 = gameBuffer.readShort();
+                  var6 = gameBuffer.method564();
+                  var14 = gameBuffer.method564();
                   final boolean var69 = (var14 & 2) != 0;
                   final boolean var17 = (var14 & 1) != 0;
                   if(var5 > 0) {
-                     aClass109_Sub14_Sub1_2211.method602();
-                     aClass109_Sub14_Sub1_2211.method564();
-                     aClass109_Sub14_Sub1_2211.method568();
+                     gameBuffer.method602();
+                     gameBuffer.method564();
+                     gameBuffer.readInt();
                   }
 
-                  aClass109_Sub14_Sub1_2211.method602();
+                  gameBuffer.method602();
 
                   for(int var32 = 0; var32 < anInt2237; ++var32) {
                      final Class33 var34 = aClass33Array2239[var32];
@@ -1680,16 +1684,16 @@ public final class client extends Applet_Sub1 {
                anInt2238 = 2;
                anInt2161 = anInt2131;
                var41 = false;
-               var2 = anInt2237;
+               target = anInt2237;
 
-               while(var2 > 0) {
+               while(target > 0) {
                   var41 = true;
-                  --var2;
+                  --target;
 
-                  for(var3 = 0; var3 < var2; ++var3) {
+                  for(walkable = 0; walkable < target; ++walkable) {
                      var45 = false;
-                     final Class33 var52 = aClass33Array2239[var3];
-                     final Class33 var20 = aClass33Array2239[var3 + 1];
+                     final Class33 var52 = aClass33Array2239[walkable];
+                     final Class33 var20 = aClass33Array2239[walkable + 1];
                      if((var52.anInt319 != anInt1970) && (anInt1970 == var20.anInt319))
 						var45 = true;
 
@@ -1703,9 +1707,9 @@ public final class client extends Applet_Sub1 {
 						var45 = true;
 
                      if(var45) {
-                        final Class33 var16 = aClass33Array2239[var3];
-                        aClass33Array2239[var3] = aClass33Array2239[1 + var3];
-                        aClass33Array2239[var3 + 1] = var16;
+                        final Class33 var16 = aClass33Array2239[walkable];
+                        aClass33Array2239[walkable] = aClass33Array2239[1 + walkable];
+                        aClass33Array2239[walkable + 1] = var16;
                         var41 = false;
                      }
                   }
@@ -1714,112 +1718,112 @@ public final class client extends Applet_Sub1 {
 					break;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 79) {
-               var1 = aClass109_Sub14_Sub1_2211.method574();
-               var42 = aClass109_Sub14_Sub1_2211.method564() == 1;
+            if(incomingMessage == 79) {
+               id = gameBuffer.method574();
+               var42 = gameBuffer.method564() == 1;
                var50 = "";
                var45 = false;
                if(var42) {
-                  var50 = aClass109_Sub14_Sub1_2211.method602();
+                  var50 = gameBuffer.method602();
                   if(Class109_Sub11.method541(var50))
 					var45 = true;
                }
 
-               final String var12 = aClass109_Sub14_Sub1_2211.method602();
+               final String var12 = gameBuffer.method602();
                if(!var45)
-				Applet_Sub1.method1053(var1, var50, var12);
+				Applet_Sub1.method1053(id, var50, var12);
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 38) {
-               var1 = aClass109_Sub14_Sub1_2211.method566();
-               var2 = aClass109_Sub14_Sub1_2211.method564();
-               var3 = aClass109_Sub14_Sub1_2211.method566();
-               if((anInt2210 != 0) && (var2 != 0) && (anInt2212 < 50)) {
-                  anIntArray2213[anInt2212] = var1;
-                  anIntArray2214[anInt2212] = var2;
-                  anIntArray2248[anInt2212] = var3;
+            if(incomingMessage == 38) {
+               id = gameBuffer.readShort();
+               target = gameBuffer.method564();
+               walkable = gameBuffer.readShort();
+               if((anInt2210 != 0) && (target != 0) && (anInt2212 < 50)) {
+                  anIntArray2213[anInt2212] = id;
+                  anIntArray2214[anInt2212] = target;
+                  anIntArray2248[anInt2212] = walkable;
                   aClass11Array2217[anInt2212] = null;
                   anIntArray2216[anInt2212] = 0;
                   ++anInt2212;
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 155) {
-               anInt2206 = aClass109_Sub14_Sub1_2211.method564();
-               anInt2013 = -1;
+            if(incomingMessage == 155) {
+               anInt2206 = gameBuffer.method564();
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 35) {
-               var13 = aClass109_Sub14_Sub1_2211.method602();
-               var11 = Class109_Sub21_Sub14_Sub4.method1013(Class35.method158(Class48.method245(aClass109_Sub14_Sub1_2211)));
+            if(incomingMessage == 35) {
+               var13 = gameBuffer.method602();
+               var11 = Class109_Sub21_Sub14_Sub4.method1013(Class35.method158(Class48.method245(gameBuffer)));
                Applet_Sub1.method1053(6, var13, var11);
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 229) {
-               Class8.anInt89 = aClass109_Sub14_Sub1_2211.method564();
-               Class109_Sub21_Sub13.anInt1544 = aClass109_Sub14_Sub1_2211.method585();
+            if(incomingMessage == 229) {
+               Class8.anInt89 = gameBuffer.method564();
+               Class109_Sub21_Sub13.anInt1544 = gameBuffer.readByteS();
 
-               while(aClass109_Sub14_Sub1_2211.position < anInt2012) {
-                  anInt2013 = aClass109_Sub14_Sub1_2211.method564();
+               while(gameBuffer.position < anInt2012) {
+                  incomingMessage = gameBuffer.method564();
                   Class109_Sub21_Sub11.method749();
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 133) {
-               Class109_Sub7.method524(false);
-               anInt2013 = -1;
+            if(incomingMessage == 133) {
+               Class109_Sub7.decodeMapRegion(false);
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 170) {
-               Class48.aClass52_501 = Class2.method17(aClass109_Sub14_Sub1_2211.method564());
-               anInt2013 = -1;
+            if(incomingMessage == 170) {
+               Class48.aClass52_501 = Class2.method17(gameBuffer.method564());
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 47) {
+            if(incomingMessage == 47) {
                Class137.method483(true);
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 157) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var11 = aClass109_Sub14_Sub1_2211.method602();
-               var10 = Class83.method345(var1);
+            if(incomingMessage == 157) {
+               id = gameBuffer.readInt();
+               var11 = gameBuffer.method602();
+               var10 = Class83.method345(id);
                if(!var11.equals(var10.aString1205)) {
                   var10.aString1205 = var11;
                   Class71.method315(var10);
                }
 
-               anInt2013 = -1;
+               incomingMessage = -1;
                return true;
             }
 
-            if(anInt2013 == 33) {
-               var1 = aClass109_Sub14_Sub1_2211.method568();
-               var2 = aClass109_Sub14_Sub1_2211.method566();
-               if(var1 < -70000)
-				var2 += '\u8000';
+            if(incomingMessage == 33) {
+               id = gameBuffer.readInt();
+               target = gameBuffer.readShort();
+               if(id < -70000)
+				target += '\u8000';
 
-               if(var1 >= 0)
-				var10 = Class83.method345(var1);
+               if(id >= 0)
+				var10 = Class83.method345(id);
 			else
 				var10 = null;
 
@@ -1829,33 +1833,33 @@ public final class client extends Applet_Sub1 {
                      var10.anIntArray1264[var5] = 0;
                   }
 
-               Class37.method163(var2);
-               var5 = aClass109_Sub14_Sub1_2211.method566();
+               Class37.method163(target);
+               var5 = gameBuffer.readShort();
 
                for(var6 = 0; var6 < var5; ++var6) {
-                  var14 = aClass109_Sub14_Sub1_2211.method592();
-                  var15 = aClass109_Sub14_Sub1_2211.method584();
+                  var14 = gameBuffer.readLEShortA();
+                  var15 = gameBuffer.method584();
                   if(var15 == 255)
-					var15 = aClass109_Sub14_Sub1_2211.method568();
+					var15 = gameBuffer.readInt();
 
                   if((var10 != null) && (var6 < var10.anIntArray1149.length)) {
                      var10.anIntArray1149[var6] = var14;
                      var10.anIntArray1264[var6] = var15;
                   }
 
-                  Class109_Sub10.method536(var2, var6, var14 - 1, var15);
+                  Class109_Sub10.method536(target, var6, var14 - 1, var15);
                }
 
                if(var10 != null)
 				Class71.method315(var10);
 
                Class44.method227();
-               anIntArray2156[(++anInt2145 - 1) & 31] = var2 & 32767;
-               anInt2013 = -1;
+               anIntArray2156[(++anInt2145 - 1) & 31] = target & 32767;
+               incomingMessage = -1;
                return true;
             }
 
-            Class47.method237("" + anInt2013 + "," + anInt2018 + "," + anInt2019 + "," + anInt2012, (Throwable)null);
+            Class47.method237("" + incomingMessage + "," + anInt2018 + "," + anInt2019 + "," + anInt2012, (Throwable)null);
             Class59.method275();
          } catch (final IOException var39) {
             if(anInt2016 > 0)
@@ -1866,10 +1870,10 @@ public final class client extends Applet_Sub1 {
                Class48.aClass82_506 = null;
             }
          } catch (final Exception var40) {
-            var13 = "" + anInt2013 + "," + anInt2018 + "," + anInt2019 + "," + anInt2012 + "," + (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1655[0] + Class41.anInt375) + "," + (Class113.anInt822 + Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1706[0]) + ",";
+            var13 = "" + incomingMessage + "," + anInt2018 + "," + anInt2019 + "," + anInt2012 + "," + (Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1655[0] + Class41.anInt375) + "," + (Class113.anInt822 + Class109_Sub21_Sub17.aClass109_Sub21_Sub15_Sub3_Sub2_1590.anIntArray1706[0]) + ",";
 
-            for(var2 = 0; (var2 < anInt2012) && (var2 < 50); ++var2)
-				var13 = var13 + aClass109_Sub14_Sub1_2211.data[var2] + ",";
+            for(target = 0; (target < anInt2012) && (target < 50); ++target)
+				var13 = var13 + gameBuffer.data[target] + ",";
 
             Class47.method237(var13, var40);
             Class59.method275();
@@ -3297,9 +3301,9 @@ public final class client extends Applet_Sub1 {
 		anIntArray2175 = new int['\u8000'];
 		secureBuffer = new Class109_Sub14_Sub1(5000);
 		loginBuffer = new Class109_Sub14_Sub1(5000);
-		aClass109_Sub14_Sub1_2211 = new Class109_Sub14_Sub1(5000);
+		gameBuffer = new Class109_Sub14_Sub1(5000);
 		anInt2012 = 0;
-		anInt2013 = 0;
+		incomingMessage = 0;
 		anInt2014 = 0;
 		anInt2009 = 0;
 		anInt2016 = 0;
@@ -3314,7 +3318,7 @@ public final class client extends Applet_Sub1 {
 		anInt2026 = 1;
 		anInt2027 = 0;
 		aClass138Array2159 = new Class138[4];
-		aBool2141 = false;
+		dynamicRegion = false;
 		anIntArrayArrayArray1996 = new int[4][13][13];
 		anIntArray2030 = new int[] { 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3 };
 		anInt2037 = 0;

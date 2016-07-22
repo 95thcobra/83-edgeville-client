@@ -64,24 +64,24 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 			anIntArray1515 = new int[var3];
 
 			for (var4 = 0; var4 < var3; ++var4)
-				anIntArray1515[var4] = var1.method566();
+				anIntArray1515[var4] = var1.readShort();
 		} else if (var2 == 2)
 			aString1528 = var1.method602();
 		else if (var2 == 12)
 			anInt1514 = var1.method564();
 		else if (var2 == 13)
-			anInt1517 = var1.method566();
+			anInt1517 = var1.readShort();
 		else if (var2 == 14)
-			anInt1520 = var1.method566();
+			anInt1520 = var1.readShort();
 		else if (var2 == 15)
-			anInt1529 = var1.method566();
+			anInt1529 = var1.readShort();
 		else if (var2 == 16)
-			anInt1519 = var1.method566();
+			anInt1519 = var1.readShort();
 		else if (var2 == 17) {
-			anInt1520 = var1.method566();
-			anInt1521 = var1.method566();
-			anInt1522 = var1.method566();
-			anInt1543 = var1.method566();
+			anInt1520 = var1.readShort();
+			anInt1521 = var1.readShort();
+			anInt1522 = var1.readShort();
+			anInt1543 = var1.readShort();
 		} else if ((var2 >= 30) && (var2 < 35)) {
 			aStringArray1545[var2 - 30] = var1.method602();
 			if (aStringArray1545[var2 - 30].equalsIgnoreCase("Hidden"))
@@ -92,8 +92,8 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 			aShortArray1525 = new short[var3];
 
 			for (var4 = 0; var4 < var3; ++var4) {
-				aShortArray1546[var4] = (short) var1.method566();
-				aShortArray1525[var4] = (short) var1.method566();
+				aShortArray1546[var4] = (short) var1.readShort();
+				aShortArray1525[var4] = (short) var1.readShort();
 			}
 		} else if (var2 == 41) {
 			var3 = var1.method564();
@@ -101,23 +101,23 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 			aShortArray1527 = new short[var3];
 
 			for (var4 = 0; var4 < var3; ++var4) {
-				aShortArray1526[var4] = (short) var1.method566();
-				aShortArray1527[var4] = (short) var1.method566();
+				aShortArray1526[var4] = (short) var1.readShort();
+				aShortArray1527[var4] = (short) var1.readShort();
 			}
 		} else if (var2 == 60) {
 			var3 = var1.method564();
 			anIntArray1536 = new int[var3];
 
 			for (var4 = 0; var4 < var3; ++var4)
-				anIntArray1536[var4] = var1.method566();
+				anIntArray1536[var4] = var1.readShort();
 		} else if (var2 == 93)
 			aBool1539 = false;
 		else if (var2 == 95)
-			anInt1530 = var1.method566();
+			anInt1530 = var1.readShort();
 		else if (var2 == 97)
-			anInt1531 = var1.method566();
+			anInt1531 = var1.readShort();
 		else if (var2 == 98)
-			anInt1532 = var1.method566();
+			anInt1532 = var1.readShort();
 		else if (var2 == 99)
 			aBool1540 = true;
 		else if (var2 == 100)
@@ -125,15 +125,15 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 		else if (var2 == 101)
 			anInt1538 = var1.method612() * 5;
 		else if (var2 == 102)
-			anInt1533 = var1.method566();
+			anInt1533 = var1.readShort();
 		else if (var2 == 103)
-			anInt1537 = var1.method566();
+			anInt1537 = var1.readShort();
 		else if (var2 == 106) {
-			anInt1518 = var1.method566();
+			anInt1518 = var1.readShort();
 			if (anInt1518 == '\uffff')
 				anInt1518 = -1;
 
-			anInt1523 = var1.method566();
+			anInt1523 = var1.readShort();
 			if (anInt1523 == '\uffff')
 				anInt1523 = -1;
 
@@ -141,7 +141,7 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 			anIntArray1516 = new int[1 + var3];
 
 			for (var4 = 0; var4 <= var3; ++var4) {
-				anIntArray1516[var4] = var1.method566();
+				anIntArray1516[var4] = var1.readShort();
 				if (anIntArray1516[var4] == '\uffff')
 					anIntArray1516[var4] = -1;
 			}
@@ -294,7 +294,7 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 	}
 
 	static final void method767() {
-		final int var0 = client.aClass109_Sub14_Sub1_2211.method844(8);
+		final int var0 = client.gameBuffer.method844(8);
 		int var2;
 		if (var0 < client.anInt2087)
 			for (var2 = var0; var2 < client.anInt2087; ++var2)
@@ -308,12 +308,12 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 			for (var2 = 0; var2 < var0; ++var2) {
 				final int var3 = client.anIntArray2134[var2];
 				final Class109_Sub21_Sub15_Sub3_Sub2 var1 = client.aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var3];
-				final int var6 = client.aClass109_Sub14_Sub1_2211.method844(1);
+				final int var6 = client.gameBuffer.method844(1);
 				if (var6 == 0) {
 					client.anIntArray2134[++client.anInt2087 - 1] = var3;
 					var1.anInt1700 = client.anInt1979;
 				} else {
-					final int var4 = client.aClass109_Sub14_Sub1_2211.method844(2);
+					final int var4 = client.gameBuffer.method844(2);
 					if (var4 == 0) {
 						client.anIntArray2134[++client.anInt2087 - 1] = var3;
 						var1.anInt1700 = client.anInt1979;
@@ -324,19 +324,19 @@ public class Class109_Sub21_Sub13 extends Class109_Sub21 {
 						if (var4 == 1) {
 							client.anIntArray2134[++client.anInt2087 - 1] = var3;
 							var1.anInt1700 = client.anInt1979;
-							var7 = client.aClass109_Sub14_Sub1_2211.method844(3);
+							var7 = client.gameBuffer.method844(3);
 							var1.method896(var7, false);
-							var5 = client.aClass109_Sub14_Sub1_2211.method844(1);
+							var5 = client.gameBuffer.method844(1);
 							if (var5 == 1)
 								client.anIntArray2186[++client.anInt2089 - 1] = var3;
 						} else if (var4 == 2) {
 							client.anIntArray2134[++client.anInt2087 - 1] = var3;
 							var1.anInt1700 = client.anInt1979;
-							var7 = client.aClass109_Sub14_Sub1_2211.method844(3);
+							var7 = client.gameBuffer.method844(3);
 							var1.method896(var7, true);
-							var5 = client.aClass109_Sub14_Sub1_2211.method844(3);
+							var5 = client.gameBuffer.method844(3);
 							var1.method896(var5, true);
-							final int var8 = client.aClass109_Sub14_Sub1_2211.method844(1);
+							final int var8 = client.gameBuffer.method844(1);
 							if (var8 == 1)
 								client.anIntArray2186[++client.anInt2089 - 1] = var3;
 						} else if (var4 == 3)

@@ -360,21 +360,21 @@ public class Class24 {
 		for (int var0 = 0; var0 < client.anInt2089; ++var0) {
 			final int var2 = client.anIntArray2186[var0];
 			final Class109_Sub21_Sub15_Sub3_Sub1 var1 = client.aClass109_Sub21_Sub15_Sub3_Sub1Array2006[var2];
-			final int var5 = client.aClass109_Sub14_Sub1_2211.method564();
+			final int var5 = client.gameBuffer.method564();
 			int var3;
 			int var4;
 			if ((var5 & 16) != 0) {
-				var3 = client.aClass109_Sub14_Sub1_2211.method608();
-				var4 = client.aClass109_Sub14_Sub1_2211.method564();
+				var3 = client.gameBuffer.readByteN();
+				var4 = client.gameBuffer.method564();
 				var1.method898(var3, var4, client.anInt1979);
 				var1.anInt1674 = client.anInt1979 + 300;
-				var1.anInt1675 = client.aClass109_Sub14_Sub1_2211.method591();
-				var1.anInt1662 = client.aClass109_Sub14_Sub1_2211.method566();
+				var1.anInt1675 = client.gameBuffer.readLEShort();
+				var1.anInt1662 = client.gameBuffer.readShort();
 			}
 
 			if ((var5 & 2) != 0) {
-				var1.anInt1688 = client.aClass109_Sub14_Sub1_2211.method566();
-				var3 = client.aClass109_Sub14_Sub1_2211.method614();
+				var1.anInt1688 = client.gameBuffer.readShort();
+				var3 = client.gameBuffer.method614();
 				var1.anInt1692 = var3 >> 16;
 				var1.anInt1691 = client.anInt1979 + (var3 & '\uffff');
 				var1.anInt1676 = 0;
@@ -387,7 +387,7 @@ public class Class24 {
 			}
 
 			if ((var5 & 128) != 0) {
-				var1.aClass109_Sub21_Sub13_1925 = Class122.method444(client.aClass109_Sub14_Sub1_2211.method591());
+				var1.aClass109_Sub21_Sub13_1925 = Class122.method444(client.gameBuffer.readLEShort());
 				var1.anInt1656 = var1.aClass109_Sub21_Sub13_1925.anInt1514;
 				var1.anInt1686 = var1.aClass109_Sub21_Sub13_1925.anInt1537;
 				var1.anInt1660 = var1.aClass109_Sub21_Sub13_1925.anInt1520;
@@ -400,20 +400,20 @@ public class Class24 {
 			}
 
 			if ((var5 & 64) != 0) {
-				var3 = client.aClass109_Sub14_Sub1_2211.method608();
-				var4 = client.aClass109_Sub14_Sub1_2211.method584();
+				var3 = client.gameBuffer.readByteN();
+				var4 = client.gameBuffer.method584();
 				var1.method898(var3, var4, client.anInt1979);
 				var1.anInt1674 = client.anInt1979 + 300;
-				var1.anInt1675 = client.aClass109_Sub14_Sub1_2211.method591();
-				var1.anInt1662 = client.aClass109_Sub14_Sub1_2211.method592();
+				var1.anInt1675 = client.gameBuffer.readLEShort();
+				var1.anInt1662 = client.gameBuffer.readLEShortA();
 			}
 
 			if ((var5 & 32) != 0) {
-				var3 = client.aClass109_Sub14_Sub1_2211.method592();
+				var3 = client.gameBuffer.readLEShortA();
 				if (var3 == '\uffff')
 					var3 = -1;
 
-				var4 = client.aClass109_Sub14_Sub1_2211.method564();
+				var4 = client.gameBuffer.method564();
 				if ((var3 == var1.anInt1683) && (var3 != -1)) {
 					final int var6 = Class109_Sub21_Sub18.method849(var3, -52588102).anInt1404;
 					if (var6 == 1) {
@@ -438,18 +438,18 @@ public class Class24 {
 			}
 
 			if ((var5 & 4) != 0) {
-				var1.anInt1664 = client.aClass109_Sub14_Sub1_2211.method559();
-				var1.anInt1665 = client.aClass109_Sub14_Sub1_2211.method592();
+				var1.anInt1664 = client.gameBuffer.readShortA();
+				var1.anInt1665 = client.gameBuffer.readLEShortA();
 			}
 
 			if ((var5 & 8) != 0) {
-				var1.anInt1677 = client.aClass109_Sub14_Sub1_2211.method559();
+				var1.anInt1677 = client.gameBuffer.readShortA();
 				if (var1.anInt1677 == '\uffff')
 					var1.anInt1677 = -1;
 			}
 
 			if ((var5 & 1) != 0) {
-				var1.aString1702 = client.aClass109_Sub14_Sub1_2211.method602();
+				var1.aString1702 = client.gameBuffer.method602();
 				var1.anInt1668 = 100;
 			}
 		}

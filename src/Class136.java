@@ -19,7 +19,7 @@ public class Class136 {
 	}
 
 	public Class136(final DataBuffer var1, final boolean var2) {
-		final int var4 = var1.method566();
+		final int var4 = var1.readShort();
 		final boolean var7 = var1.method564() == 1;
 		byte var3;
 		if (var7)
@@ -27,7 +27,7 @@ public class Class136 {
 		else
 			var3 = 0;
 
-		final int var6 = var1.method566();
+		final int var6 = var1.readShort();
 		aList887 = new ArrayList(var6);
 
 		for (int var5 = 0; var5 < var6; ++var5)

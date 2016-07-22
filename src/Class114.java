@@ -20,10 +20,10 @@ public class Class114 {
 	Class114(final DataBuffer var1, final byte var2, final int var3) {
 		aString825 = var1.method602();
 		aString827 = var1.method602();
-		anInt826 = var1.method566();
+		anInt826 = var1.readShort();
 		aLong824 = var1.method613();
-		final int var4 = var1.method568();
-		final int var5 = var1.method568();
+		final int var4 = var1.readInt();
+		final int var5 = var1.readInt();
 		aClass134_828 = new Class134();
 		aClass134_828.method478(2);
 		aClass134_828.method479(var2);

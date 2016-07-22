@@ -15,8 +15,8 @@ public abstract class Class137 {
 			}
 		}
 
-		if (client.aClass109_Sub14_Sub1_2211.position != client.anInt2012)
-			throw new RuntimeException(client.aClass109_Sub14_Sub1_2211.position + "," + client.anInt2012);
+		if (client.gameBuffer.position != client.anInt2012)
+			throw new RuntimeException(client.gameBuffer.position + "," + client.anInt2012);
 		else
 			for (var1 = 0; var1 < client.anInt2007; ++var1)
 				if (client.aClass109_Sub21_Sub15_Sub3_Sub1Array2006[client.anIntArray2175[var1]] == null)

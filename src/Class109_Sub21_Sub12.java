@@ -108,26 +108,26 @@ public class Class109_Sub21_Sub12 extends Class109_Sub21 {
 		else if (var2 == 3)
 			aString1501 = var1.method602();
 		else if (var2 == 4)
-			anInt1502 = var1.method568();
+			anInt1502 = var1.readInt();
 		else {
 			int var3;
 			if (var2 == 5) {
-				anInt1508 = var1.method566();
+				anInt1508 = var1.readShort();
 				anIntArray1504 = new int[anInt1508];
 				aStringArray1505 = new String[anInt1508];
 
 				for (var3 = 0; var3 < anInt1508; ++var3) {
-					anIntArray1504[var3] = var1.method568();
+					anIntArray1504[var3] = var1.readInt();
 					aStringArray1505[var3] = var1.method602();
 				}
 			} else if (var2 == 6) {
-				anInt1508 = var1.method566();
+				anInt1508 = var1.readShort();
 				anIntArray1504 = new int[anInt1508];
 				anIntArray1497 = new int[anInt1508];
 
 				for (var3 = 0; var3 < anInt1508; ++var3) {
-					anIntArray1504[var3] = var1.method568();
-					anIntArray1497[var3] = var1.method568();
+					anIntArray1504[var3] = var1.readInt();
+					anIntArray1497[var3] = var1.readInt();
 				}
 			}
 		}

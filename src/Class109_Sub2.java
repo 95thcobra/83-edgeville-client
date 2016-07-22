@@ -12,7 +12,7 @@ public class Class109_Sub2 extends Class109 {
 	static int[] anIntArray918;
 
 	Class109_Sub2(final DataBuffer var1) {
-		anInt909 = var1.method566();
+		anInt909 = var1.readShort();
 		aBool910 = var1.method564() == 1;
 		final int var2 = var1.method564();
 		if ((var2 >= 1) && (var2 <= 4)) {
@@ -20,7 +20,7 @@ public class Class109_Sub2 extends Class109 {
 
 			int var3;
 			for (var3 = 0; var3 < var2; ++var3)
-				anIntArray913[var3] = var1.method566();
+				anIntArray913[var3] = var1.readShort();
 
 			if (var2 > 1) {
 				anIntArray911 = new int[var2 - 1];
@@ -39,7 +39,7 @@ public class Class109_Sub2 extends Class109 {
 			anIntArray915 = new int[var2];
 
 			for (var3 = 0; var3 < var2; ++var3)
-				anIntArray915[var3] = var1.method568();
+				anIntArray915[var3] = var1.readInt();
 
 			anInt914 = var1.method564();
 			anInt912 = var1.method564();

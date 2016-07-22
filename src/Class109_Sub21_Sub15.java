@@ -41,7 +41,7 @@ public abstract class Class109_Sub21_Sub15 extends Class109_Sub21 {
 			Class31.aClass109_Sub21_Sub14_Sub1Array312 = null;
 			Class21.aClass109_Sub21_Sub14_Sub1Array197 = null;
 			Class5.aClass109_Sub21_Sub14_Sub1Array51 = null;
-			Class91.aClass109_Sub21_Sub14_Sub1_690 = null;
+			PacketDecoder1.aClass109_Sub21_Sub14_Sub1_690 = null;
 			Class68.anIntArray587 = null;
 			Class109_Sub21_Sub15_Sub1.anIntArray1639 = null;
 			IsaacCipher.anIntArray560 = null;

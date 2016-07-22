@@ -458,7 +458,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
 			final int var4 = client.anIntArray2114[var0];
 			final String var6 = client.aStringArray1975[var0];
 			final String var1 = client.aStringArray2123[var0];
-			Class91.method355(var2, var3, var5, var4, var6, var1, Class81.anInt645, Class81.anInt639);
+			PacketDecoder1.method355(var2, var3, var5, var4, var6, var1, Class81.anInt645, Class81.anInt639);
 		}
 	}
 }

@@ -23,28 +23,28 @@ public final class Class23 {
 		for (int var0 = 0; var0 < client.anInt2089; ++var0) {
 			final int var1 = client.anIntArray2186[var0];
 			final Class109_Sub21_Sub15_Sub3_Sub2 var2 = client.aClass109_Sub21_Sub15_Sub3_Sub2Array2086[var1];
-			int var5 = client.aClass109_Sub14_Sub1_2211.method564();
+			int var5 = client.gameBuffer.method564();
 			if ((var5 & 128) != 0)
-				var5 += client.aClass109_Sub14_Sub1_2211.method564() << 8;
+				var5 += client.gameBuffer.method564() << 8;
 
 			int var7;
 			int var8;
 			if ((var5 & 512) != 0) {
-				var7 = client.aClass109_Sub14_Sub1_2211.method591();
-				var8 = client.aClass109_Sub14_Sub1_2211.method564();
+				var7 = client.gameBuffer.readLEShort();
+				var8 = client.gameBuffer.method564();
 				var2.method898(var7, var8, client.anInt1979);
 				var2.anInt1674 = 300 + client.anInt1979;
-				var2.anInt1675 = client.aClass109_Sub14_Sub1_2211.method608();
-				var2.anInt1662 = client.aClass109_Sub14_Sub1_2211.method608();
+				var2.anInt1675 = client.gameBuffer.readByteN();
+				var2.anInt1662 = client.gameBuffer.readByteN();
 			}
 
 			if ((var5 & 16) != 0) {
-				var7 = client.aClass109_Sub14_Sub1_2211.method591();
+				var7 = client.gameBuffer.readLEShort();
 				final Class89 var3 = (Class89) Class33.method151(Class109_Sub21_Sub15_Sub6.method980(),
-						client.aClass109_Sub14_Sub1_2211.method608());
-				final boolean var9 = client.aClass109_Sub14_Sub1_2211.method584() == 1;
-				final int var10 = client.aClass109_Sub14_Sub1_2211.method608();
-				final int var11 = client.aClass109_Sub14_Sub1_2211.position;
+						client.gameBuffer.readByteN());
+				final boolean var9 = client.gameBuffer.method584() == 1;
+				final int var10 = client.gameBuffer.readByteN();
+				final int var11 = client.gameBuffer.position;
 				if ((null != var2.aString1931) && (var2.aClass96_1929 != null)) {
 					boolean var6 = false;
 					if (var3.aBool674 && Class109_Sub11.method541(var2.aString1931))
@@ -52,7 +52,7 @@ public final class Class23 {
 
 					if (!var6 && (client.anInt2085 == 0) && !var2.aBool1928) {
 						client.aClass109_Sub14_2031.position = 0;
-						client.aClass109_Sub14_Sub1_2211.method554(client.aClass109_Sub14_2031.data, 0,
+						client.gameBuffer.method554(client.aClass109_Sub14_2031.data, 0,
 								var10);
 						client.aClass109_Sub14_2031.position = 0;
 						final String var12 = Class109_Sub21_Sub14_Sub4
@@ -80,29 +80,29 @@ public final class Class23 {
 					}
 				}
 
-				client.aClass109_Sub14_Sub1_2211.position = var10 + var11;
+				client.gameBuffer.position = var10 + var11;
 			}
 
 			if ((var5 & 8) != 0) {
-				var7 = client.aClass109_Sub14_Sub1_2211.method591();
-				var8 = client.aClass109_Sub14_Sub1_2211.method564();
+				var7 = client.gameBuffer.readLEShort();
+				var8 = client.gameBuffer.method564();
 				var2.method898(var7, var8, client.anInt1979);
 				var2.anInt1674 = client.anInt1979 + 300;
-				var2.anInt1675 = client.aClass109_Sub14_Sub1_2211.method585();
-				var2.anInt1662 = client.aClass109_Sub14_Sub1_2211.method564();
+				var2.anInt1675 = client.gameBuffer.readByteS();
+				var2.anInt1662 = client.gameBuffer.method564();
 			}
 
 			if ((var5 & 4) != 0) {
-				var7 = client.aClass109_Sub14_Sub1_2211.method566();
+				var7 = client.gameBuffer.readShort();
 				if (var7 == '\uffff')
 					var7 = -1;
 
-				var8 = client.aClass109_Sub14_Sub1_2211.method585();
+				var8 = client.gameBuffer.readByteS();
 				Class19.method89(var2, var7, var8);
 			}
 
 			if ((var5 & 64) != 0) {
-				var2.aString1702 = client.aClass109_Sub14_Sub1_2211.method602();
+				var2.aString1702 = client.gameBuffer.method602();
 				if (var2.aString1702.charAt(0) == 126) {
 					var2.aString1702 = var2.aString1702.substring(1);
 					Applet_Sub1.method1053(2, var2.aString1931, var2.aString1702);
@@ -116,8 +116,8 @@ public final class Class23 {
 			}
 
 			if ((var5 & 1024) != 0) {
-				var2.anInt1688 = client.aClass109_Sub14_Sub1_2211.method566();
-				var7 = client.aClass109_Sub14_Sub1_2211.method568();
+				var2.anInt1688 = client.gameBuffer.readShort();
+				var7 = client.gameBuffer.readInt();
 				var2.anInt1692 = var7 >> 16;
 				var2.anInt1691 = (var7 & '\uffff') + client.anInt1979;
 				var2.anInt1676 = 0;
@@ -130,33 +130,33 @@ public final class Class23 {
 			}
 
 			if ((var5 & 1) != 0) {
-				var7 = client.aClass109_Sub14_Sub1_2211.method608();
+				var7 = client.gameBuffer.readByteN();
 				final byte[] var17 = new byte[var7];
 				final DataBuffer var16 = new DataBuffer(var17);
-				client.aClass109_Sub14_Sub1_2211.method600(var17, 0, var7);
+				client.gameBuffer.method600(var17, 0, var7);
 				client.aClass109_Sub14Array2091[var1] = var16;
 				var2.method1037(var16);
 			}
 
 			if ((var5 & 2) != 0) {
-				var2.anInt1677 = client.aClass109_Sub14_Sub1_2211.method559();
+				var2.anInt1677 = client.gameBuffer.readShortA();
 				if (var2.anInt1677 == '\uffff')
 					var2.anInt1677 = -1;
 			}
 
 			if ((var5 & 32) != 0) {
-				var2.anInt1664 = client.aClass109_Sub14_Sub1_2211.method559();
-				var2.anInt1665 = client.aClass109_Sub14_Sub1_2211.method559();
+				var2.anInt1664 = client.gameBuffer.readShortA();
+				var2.anInt1665 = client.gameBuffer.readShortA();
 			}
 
 			if ((var5 & 256) != 0) {
-				var2.anInt1693 = client.aClass109_Sub14_Sub1_2211.method608();
-				var2.anInt1695 = client.aClass109_Sub14_Sub1_2211.method608();
-				var2.anInt1694 = client.aClass109_Sub14_Sub1_2211.method608();
-				var2.anInt1690 = client.aClass109_Sub14_Sub1_2211.method608();
-				var2.anInt1697 = client.aClass109_Sub14_Sub1_2211.method592() + client.anInt1979;
-				var2.anInt1698 = client.aClass109_Sub14_Sub1_2211.method559() + client.anInt1979;
-				var2.anInt1699 = client.aClass109_Sub14_Sub1_2211.method584();
+				var2.anInt1693 = client.gameBuffer.readByteN();
+				var2.anInt1695 = client.gameBuffer.readByteN();
+				var2.anInt1694 = client.gameBuffer.readByteN();
+				var2.anInt1690 = client.gameBuffer.readByteN();
+				var2.anInt1697 = client.gameBuffer.readLEShortA() + client.anInt1979;
+				var2.anInt1698 = client.gameBuffer.readShortA() + client.anInt1979;
+				var2.anInt1699 = client.gameBuffer.method584();
 				var2.anInt1705 = 1;
 				var2.anInt1709 = 0;
 			}
